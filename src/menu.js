@@ -29,8 +29,10 @@ var menuState = {
     var startGameButton = game.add.text(512, 470, 'Start Game', game.style);
     startGameButton.inputEnabled = true;
     startGameButton.events.onInputUp.add(function () {
+      game.titleMusic.pause();
+      game.levelMusic = game.add.audio('level', 0.3, true).play();
       game.state.start('play');
-    }, this);
+    });
 
     /**
      * Set the Credits button
@@ -39,7 +41,7 @@ var menuState = {
     creditsButton.inputEnabled = true;
     creditsButton.events.onInputUp.add(function () {
       game.state.start('credits');
-    }, this);
+    });
   },
 
 

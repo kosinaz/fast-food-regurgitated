@@ -12,6 +12,10 @@ var loadState = {
      */
     game.load.audio('title', 'assets/title.mp3');
     game.load.audio('level', 'assets/level.mp3');
+    game.load.audio('boing1', 'assets/boing1.mp3');
+    game.load.audio('boing2', 'assets/boing2.mp3');
+    game.load.audio('boing3', 'assets/boing3.mp3');
+    game.load.audio('fail', 'assets/fail.mp3');
   },
 
   create: function () {

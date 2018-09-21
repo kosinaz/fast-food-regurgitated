@@ -21,3 +21,7 @@ game.style = {
   fill: '#fff',
   font: 'bold 24pt Arial'
 };
+
+game.textStyle = {
+  font: 'bold 16pt Arial'
+};

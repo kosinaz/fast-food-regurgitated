@@ -6,13 +6,16 @@ var creditsState = {
       512,
       288,
       'Art and code\n' +
-      'Zoltan Kosina\n\n' +
+      ' Zoltan Kosina\n\n' +
       'Ingame music\n' +
-      'Happy Happy Game Show - Kevin MacLeod (incompetech.com)\n' +
-      'Licensed under Creative Commons: By Attribution 3.0\n' +
-      'http: //creativecommons.org/licenses/by/3.0/\n\n' +
+      ' Happy Happy Game Show - Kevin MacLeod (incompetech.com)\n' +
+      ' Licensed under Creative Commons: By Attribution 3.0\n' +
+      ' http: //creativecommons.org/licenses/by/3.0/\n\n' +
       'Title and menu music\n' +
-      'Strollin Thru The Fifties - Rasputin1963 (looperman.com)'
+      ' Strollin Thru The Fifties - Rasputin1963 (www.looperman.com)\n\n' +
+      'Sound effects\n' +
+      ' Zapsplat (www.zapsplat.com)',
+      game.textStyle
     );
 
     /**

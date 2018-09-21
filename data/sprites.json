@@ -33,8 +33,16 @@
 	"sourceSize": {"w":64,"h":83}
 },
 {
+	"filename": "spam_lit",
+	"frame": {"x":256,"y":0,"w":64,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
+	"sourceSize": {"w":64,"h":65}
+},
+{
 	"filename": "subtitle",
-	"frame": {"x":256,"y":0,"w":500,"h":150},
+	"frame": {"x":320,"y":0,"w":500,"h":150},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":500,"h":150},
@@ -61,8 +69,8 @@
 	"version": "1.0",
 	"image": "sprites.png",
 	"format": "RGBA8888",
-	"size": {"w":756,"h":802},
+	"size": {"w":820,"h":802},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:44426f58577d638e2c7e82ceaf2266b5:c5e274a85a4413280d325726989ffd8e:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:9aa20edbadd81f168b5ef9f5c50d9b2c:ef6e0655fa9ea40233a17b7af2748311:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

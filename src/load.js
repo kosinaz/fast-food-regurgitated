@@ -10,7 +10,8 @@ var loadState = {
     /**
      * Load the music.
      */
-    game.load.audio('music', ['assets/music.ogg', 'assets/music.m4a']);
+    game.load.audio('title', 'assets/title.mp3');
+    game.load.audio('level', 'assets/level.mp3');
   },
 
   create: function () {
@@ -18,7 +19,7 @@ var loadState = {
     /**
      * Start the music.
      */
-    game.music = game.add.audio('music', 0.3, true).play();
+    game.titleMusic = game.add.audio('title', 0.3, true).play();
 
     /**
      * Start the game.

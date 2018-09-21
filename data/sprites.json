@@ -1,48 +1,48 @@
 {"frames": [
 
 {
-	"filename": "mouth_lit_64_1",
-	"frame": {"x":0,"y":0,"w":64,"h":83},
+	"filename": "burger",
+	"frame": {"x":0,"y":0,"w":56,"h":60},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":60},
+	"sourceSize": {"w":56,"h":60}
+},
+{
+	"filename": "lips1",
+	"frame": {"x":56,"y":0,"w":64,"h":83},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":83},
 	"sourceSize": {"w":64,"h":83}
 },
 {
-	"filename": "mouth_lit_64_2",
-	"frame": {"x":64,"y":0,"w":64,"h":83},
+	"filename": "lips2",
+	"frame": {"x":120,"y":0,"w":64,"h":83},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":83},
 	"sourceSize": {"w":64,"h":83}
 },
 {
-	"filename": "mouth_lit_64_3",
-	"frame": {"x":128,"y":0,"w":64,"h":83},
+	"filename": "lips3",
+	"frame": {"x":184,"y":0,"w":64,"h":83},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":83},
 	"sourceSize": {"w":64,"h":83}
 },
 {
-	"filename": "mouth_lit_64_4",
-	"frame": {"x":192,"y":0,"w":64,"h":83},
+	"filename": "lips4",
+	"frame": {"x":248,"y":0,"w":64,"h":83},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":83},
 	"sourceSize": {"w":64,"h":83}
-},
-{
-	"filename": "spam_lit",
-	"frame": {"x":256,"y":0,"w":64,"h":65},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":65},
-	"sourceSize": {"w":64,"h":65}
 },
 {
 	"filename": "subtitle",
-	"frame": {"x":320,"y":0,"w":500,"h":150},
+	"frame": {"x":312,"y":0,"w":500,"h":150},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":500,"h":150},
@@ -69,8 +69,8 @@
 	"version": "1.0",
 	"image": "sprites.png",
 	"format": "RGBA8888",
-	"size": {"w":820,"h":802},
+	"size": {"w":812,"h":802},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:9aa20edbadd81f168b5ef9f5c50d9b2c:ef6e0655fa9ea40233a17b7af2748311:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:84c9e73526310cbd4fdabe915c15b82b:e85e8c102923664eafa795f1966ad269:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

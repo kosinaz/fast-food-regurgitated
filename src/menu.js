@@ -3,7 +3,7 @@ var menuState = {
   create: function () {
 
     game.stage.backgroundColor = '#66b4e2';
-    var title, subtitle;
+    var title, subtitle, startGameButton, creditsButton;
     game.add.sprite(512, 160, 'sprites', 'title_off');
     title = game.add.sprite(512, 160, 'sprites', 'title');
     title.alpha = 0;
@@ -24,21 +24,24 @@ var menuState = {
     }, 1000, Phaser.Easing.Bounce.Out, true, 1500);
 
     /**
-     * Set the Start New Game button
+     * Set the Start Game button
      */
-    this.startNewGameButton = game.add.text(512, 488, 'Start New Game', game.style);
-    this.startNewGameButton.inputEnabled = true;
-    this.startNewGameButton.events.onInputUp.add(this.start, this);
-    this.startNewGameButton.anchor.set(0.5, 0.5);
-  },
-
-  start: function () {
+    var startGameButton = game.add.text(512, 470, 'Start Game', game.style);
+    startGameButton.inputEnabled = true;
+    startGameButton.events.onInputUp.add(function () {
+      game.state.start('play');
+    }, this);
 
     /**
-     * Start the level.
+     * Set the Credits button
      */
-    game.state.start('play');
+    var creditsButton = game.add.text(512, 520, 'Credits', game.style);
+    creditsButton.inputEnabled = true;
+    creditsButton.events.onInputUp.add(function () {
+      game.state.start('credits');
+    }, this);
   },
+
 
   update: function () {
 

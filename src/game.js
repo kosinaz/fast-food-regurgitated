@@ -9,6 +9,7 @@ var game = new Phaser.Game(1024, 576, Phaser.AUTO, '');
 game.state.add('load', loadState, true);
 game.state.add('menu', menuState);
 game.state.add('play', playState);
+game.state.add('credits', creditsState);
 
 PIXI.Sprite.defaultAnchor = {
   x: 0.5,
@@ -16,6 +17,7 @@ PIXI.Sprite.defaultAnchor = {
 }
 
 game.style = {
-  font: 'bold 24pt Arial',
-  fill: '#fff'
+  alig: 'center',
+  fill: '#fff',
+  font: 'bold 24pt Arial'
 };

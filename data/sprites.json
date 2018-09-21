@@ -57,15 +57,15 @@
 	"sourceSize": {"w":64,"h":83}
 },
 {
-	"filename": "pizzal1",
-	"frame": {"x":192,"y":0,"w":64,"h":39},
+	"filename": "pizza1",
+	"frame": {"x":192,"y":0,"w":64,"h":38},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":39},
-	"sourceSize": {"w":64,"h":39}
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":38},
+	"sourceSize": {"w":64,"h":38}
 },
 {
-	"filename": "pizzal2",
+	"filename": "pizza2",
 	"frame": {"x":128,"y":71,"w":128,"h":71},
 	"rotated": false,
 	"trimmed": false,
@@ -73,7 +73,7 @@
 	"sourceSize": {"w":128,"h":71}
 },
 {
-	"filename": "pizzal3",
+	"filename": "pizza3",
 	"frame": {"x":0,"y":71,"w":128,"h":71},
 	"rotated": false,
 	"trimmed": false,
@@ -81,7 +81,7 @@
 	"sourceSize": {"w":128,"h":71}
 },
 {
-	"filename": "pizzal4",
+	"filename": "pizza4",
 	"frame": {"x":568,"y":0,"w":128,"h":71},
 	"rotated": false,
 	"trimmed": false,
@@ -89,7 +89,7 @@
 	"sourceSize": {"w":128,"h":71}
 },
 {
-	"filename": "pizzal5",
+	"filename": "pizza5",
 	"frame": {"x":312,"y":0,"w":128,"h":71},
 	"rotated": false,
 	"trimmed": false,
@@ -97,7 +97,7 @@
 	"sourceSize": {"w":128,"h":71}
 },
 {
-	"filename": "pizzal6",
+	"filename": "pizza6",
 	"frame": {"x":824,"y":0,"w":128,"h":71},
 	"rotated": false,
 	"trimmed": false,
@@ -105,7 +105,7 @@
 	"sourceSize": {"w":128,"h":71}
 },
 {
-	"filename": "pizzal7",
+	"filename": "pizza7",
 	"frame": {"x":440,"y":0,"w":128,"h":71},
 	"rotated": false,
 	"trimmed": false,
@@ -113,7 +113,7 @@
 	"sourceSize": {"w":128,"h":71}
 },
 {
-	"filename": "pizzal8",
+	"filename": "pizza8",
 	"frame": {"x":696,"y":0,"w":128,"h":71},
 	"rotated": false,
 	"trimmed": false,
@@ -159,6 +159,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1012,"h":873},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a67b13162bc1186faf58e8d422388937:a42878cc323e80818071b52a9e1b44b2:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:03e5c0dd7e465ed0ae2714704b12e24c:a9dda9c5e7280d3d377d5a44972be0ff:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

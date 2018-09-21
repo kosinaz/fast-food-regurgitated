@@ -52,7 +52,7 @@ var playState = {
         10, 
         game.rnd.integerInRange(150, 426), 
         'sprites', 
-        ['burger','hotdog', 'pizzal8'][game.rnd.integerInRange(0, 2)]
+        ['burger','hotdog', 'pizza8'][game.rnd.integerInRange(0, 2)]
       );
       game.physics.enable(food, Phaser.Physics.ARCADE);
       food.body.velocity.setTo(400 + game.rnd.integerInRange(0, 200), 0);

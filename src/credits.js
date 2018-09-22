@@ -26,6 +26,7 @@ var creditsState = {
     backButton.events.onInputUp.add(function () {
       game.state.start('menu');
     }, this);
+    backButton.setShadow(2, 2, '#dfa8ba', 0);
 
   },
 

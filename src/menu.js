@@ -33,7 +33,8 @@ var menuState = {
       game.levelMusic = game.add.audio('level', 0.3, true).play();
       game.state.start('play');
     });
-
+    startGameButton.setShadow(2, 2, '#dfa8ba', 0);
+    
     /**
      * Set the Credits button
      */
@@ -42,6 +43,7 @@ var menuState = {
     creditsButton.events.onInputUp.add(function () {
       game.state.start('credits');
     });
+    creditsButton.setShadow(2, 2, '#dfa8ba', 0);
   },
 
 

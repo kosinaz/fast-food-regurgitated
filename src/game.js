@@ -18,10 +18,11 @@ PIXI.Sprite.defaultAnchor = {
 
 game.style = {
   alig: 'center',
-  fill: '#fff',
+  fill: '#fbf5f7',
   font: 'bold 24pt Arial'
 };
 
 game.textStyle = {
+  fill: '#ff0',
   font: 'bold 16pt Arial'
 };

@@ -181,6 +181,53 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">bun left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,9,23,17</rect>
+                <key>scale9Paddings</key>
+                <rect>12,9,23,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">bun off.png</key>
+            <key type="filename">bun on.png</key>
+            <key type="filename">burger off.png</key>
+            <key type="filename">burger on.png</key>
+            <key type="filename">cola off.png</key>
+            <key type="filename">cola on.png</key>
+            <key type="filename">donut off.png</key>
+            <key type="filename">donut on.png</key>
+            <key type="filename">fries off.png</key>
+            <key type="filename">fries on.png</key>
+            <key type="filename">hotdog off.png</key>
+            <key type="filename">hotdog on.png</key>
+            <key type="filename">ice cream bar off.png</key>
+            <key type="filename">ice cream bar on.png</key>
+            <key type="filename">ice cream cone off.png</key>
+            <key type="filename">ice cream cone on.png</key>
+            <key type="filename">pizza off.png</key>
+            <key type="filename">pizza on.png</key>
+            <key type="filename">pizza slice off.png</key>
+            <key type="filename">pizza slice on.png</key>
+            <key type="filename">sausage off.png</key>
+            <key type="filename">sausage on.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9Paddings</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">bun.png</key>
             <key type="filename">hotdog.png</key>
             <struct type="IndividualSpriteSettings">
@@ -192,6 +239,19 @@
                 <rect>16,9,32,17</rect>
                 <key>scale9Paddings</key>
                 <rect>16,9,32,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">burger left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>11,8,21,16</rect>
+                <key>scale9Paddings</key>
+                <rect>11,8,21,16</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -208,6 +268,19 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">cola left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,7,11</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,7,11</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">cola.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -218,6 +291,84 @@
                 <rect>24,10,48,21</rect>
                 <key>scale9Paddings</key>
                 <rect>24,10,48,21</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">crumbs.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">donut left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>7,6,14,12</rect>
+                <key>scale9Paddings</key>
+                <rect>7,6,14,12</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">donut.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,8,32,16</rect>
+                <key>scale9Paddings</key>
+                <rect>16,8,32,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">drop.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,7,9,13</rect>
+                <key>scale9Paddings</key>
+                <rect>5,7,9,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">dust.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9Paddings</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">fries left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,7,11,13</rect>
+                <key>scale9Paddings</key>
+                <rect>5,7,11,13</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -234,6 +385,58 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">ice cream bar left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>11,6,23,12</rect>
+                <key>scale9Paddings</key>
+                <rect>11,6,23,12</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ice cream bar.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>14,5,28,10</rect>
+                <key>scale9Paddings</key>
+                <rect>14,5,28,10</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ice cream cone left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>10,5,20,9</rect>
+                <key>scale9Paddings</key>
+                <rect>10,5,20,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ice cream cone.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>14,7,28,13</rect>
+                <key>scale9Paddings</key>
+                <rect>14,7,28,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">lips1.png</key>
             <key type="filename">lips2.png</key>
             <key type="filename">lips3.png</key>
@@ -247,6 +450,19 @@
                 <rect>16,21,32,41</rect>
                 <key>scale9Paddings</key>
                 <rect>16,21,32,41</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">pizza1 left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>13,10,25,19</rect>
+                <key>scale9Paddings</key>
+                <rect>13,10,25,19</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -279,6 +495,45 @@
                 <rect>32,18,64,35</rect>
                 <key>scale9Paddings</key>
                 <rect>32,18,64,35</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">purple pickle left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>10,5,19,10</rect>
+                <key>scale9Paddings</key>
+                <rect>10,5,19,10</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">purple pickle.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>24,5,48,10</rect>
+                <key>scale9Paddings</key>
+                <rect>24,5,48,10</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">sausage left-over.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,3,15,7</rect>
+                <key>scale9Paddings</key>
+                <rect>8,3,15,7</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -358,6 +613,45 @@
             <filename>pizza7.png</filename>
             <filename>fries.png</filename>
             <filename>cola.png</filename>
+            <filename>donut.png</filename>
+            <filename>ice cream cone.png</filename>
+            <filename>ice cream bar.png</filename>
+            <filename>purple pickle.png</filename>
+            <filename>burger left-over.png</filename>
+            <filename>bun left-over.png</filename>
+            <filename>sausage left-over.png</filename>
+            <filename>pizza1 left-over.png</filename>
+            <filename>fries left-over.png</filename>
+            <filename>cola left-over.png</filename>
+            <filename>ice cream cone left-over.png</filename>
+            <filename>donut left-over.png</filename>
+            <filename>ice cream bar left-over.png</filename>
+            <filename>purple pickle left-over.png</filename>
+            <filename>crumbs.png</filename>
+            <filename>dust.png</filename>
+            <filename>drop.png</filename>
+            <filename>burger on.png</filename>
+            <filename>burger off.png</filename>
+            <filename>hotdog off.png</filename>
+            <filename>hotdog on.png</filename>
+            <filename>sausage off.png</filename>
+            <filename>sausage on.png</filename>
+            <filename>bun on.png</filename>
+            <filename>bun off.png</filename>
+            <filename>pizza slice on.png</filename>
+            <filename>pizza slice off.png</filename>
+            <filename>pizza off.png</filename>
+            <filename>pizza on.png</filename>
+            <filename>cola off.png</filename>
+            <filename>cola on.png</filename>
+            <filename>fries on.png</filename>
+            <filename>fries off.png</filename>
+            <filename>ice cream bar on.png</filename>
+            <filename>ice cream bar off.png</filename>
+            <filename>ice cream cone off.png</filename>
+            <filename>ice cream cone on.png</filename>
+            <filename>donut on.png</filename>
+            <filename>donut off.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -96,7 +96,6 @@ var playState = {
       game.add.audio('boing' + game.rnd.integerInRange(1, 3), 0.3).play();
       game.lips.body.velocity.setTo(0, -400);
     }
-    game.add.sprite(512, 64, 'sprites', 'top');
 
   },
 

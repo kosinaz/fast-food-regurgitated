@@ -151,7 +151,7 @@
         <key>autoAliasEnabled</key>
         <false/>
         <key>trimSpriteNames</key>
-        <false/>
+        <true/>
         <key>prependSmartFolderName</key>
         <false/>
         <key>autodetectAnimations</key>
@@ -181,23 +181,183 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">sprite.png</key>
+            <key type="filename">bun.png</key>
+            <key type="filename">hotdog.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>25,25,50,50</rect>
+                <rect>16,9,32,17</rect>
                 <key>scale9Paddings</key>
-                <rect>25,25,50,50</rect>
+                <rect>16,9,32,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">burger.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>14,15,28,30</rect>
+                <key>scale9Paddings</key>
+                <rect>14,15,28,30</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">cola.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>24,10,48,21</rect>
+                <key>scale9Paddings</key>
+                <rect>24,10,48,21</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">fries.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>14,12,27,24</rect>
+                <key>scale9Paddings</key>
+                <rect>14,12,27,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lips1.png</key>
+            <key type="filename">lips2.png</key>
+            <key type="filename">lips3.png</key>
+            <key type="filename">lips4.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,21,32,41</rect>
+                <key>scale9Paddings</key>
+                <rect>16,21,32,41</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">pizza1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,10,32,19</rect>
+                <key>scale9Paddings</key>
+                <rect>16,10,32,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">pizza2.png</key>
+            <key type="filename">pizza3.png</key>
+            <key type="filename">pizza4.png</key>
+            <key type="filename">pizza5.png</key>
+            <key type="filename">pizza6.png</key>
+            <key type="filename">pizza7.png</key>
+            <key type="filename">pizza8.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,18,64,35</rect>
+                <key>scale9Paddings</key>
+                <rect>32,18,64,35</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">sausage.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,3,32,7</rect>
+                <key>scale9Paddings</key>
+                <rect>16,3,32,7</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">subtitle.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>125,38,250,75</rect>
+                <key>scale9Paddings</key>
+                <rect>125,38,250,75</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">title.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>256,144,512,288</rect>
+                <key>scale9Paddings</key>
+                <rect>256,144,512,288</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">title_off.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>146,73,291,146</rect>
+                <key>scale9Paddings</key>
+                <rect>146,73,291,146</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>sprite.png</filename>
+            <filename>title.png</filename>
+            <filename>subtitle.png</filename>
+            <filename>title_off.png</filename>
+            <filename>burger.png</filename>
+            <filename>lips4.png</filename>
+            <filename>lips3.png</filename>
+            <filename>lips2.png</filename>
+            <filename>lips1.png</filename>
+            <filename>hotdog.png</filename>
+            <filename>sausage.png</filename>
+            <filename>bun.png</filename>
+            <filename>pizza3.png</filename>
+            <filename>pizza2.png</filename>
+            <filename>pizza8.png</filename>
+            <filename>pizza4.png</filename>
+            <filename>pizza5.png</filename>
+            <filename>pizza6.png</filename>
+            <filename>pizza1.png</filename>
+            <filename>pizza7.png</filename>
+            <filename>fries.png</filename>
+            <filename>cola.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -5,6 +5,7 @@ var playState = {
     game.over = false;
 
     game.add.sprite(512, 64, 'sprites', 'top');
+    game.add.sprite(512, 544, 'sprites', 'pavement');
     game.add.sprite(32, 32, 'sprites', 'burger on');
     game.add.sprite(32 + 128, 32, 'sprites', 'hotdog off');
     game.add.sprite(120, 80, 'sprites', 'bun off');
@@ -95,6 +96,7 @@ var playState = {
       game.add.audio('boing' + game.rnd.integerInRange(1, 3), 0.3).play();
       game.lips.body.velocity.setTo(0, -400);
     }
+    game.add.sprite(512, 64, 'sprites', 'top');
 
   },
 

@@ -16,6 +16,9 @@ var loadState = {
     game.load.audio('boing2', 'assets/boing2.mp3');
     game.load.audio('boing3', 'assets/boing3.mp3');
     game.load.audio('fail', 'assets/fail.mp3');
+
+    game.load.script('BlurX', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/BlurX.js');
+    game.load.script('BlurY', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/BlurY.js');
   },
 
   create: function () {

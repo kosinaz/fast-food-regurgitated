@@ -36,6 +36,9 @@ var playState = {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.physics.arcade.gravity.y = 1000;
 
+    game.lipsShadow = game.add.sprite(980, 544, 'sprites', 'lips4');
+    game.lipsShadow.tint = 0x000000;
+
     game.lips = game.add.sprite(980, 288, 'sprites');
     game.lips.animations.add('eat', [
       'lips1',
@@ -47,6 +50,7 @@ var playState = {
       'lips1'
     ], 30, true);
     game.lips.animations.play('eat');
+    
 
     game.foods = game.add.group();
 
@@ -75,17 +79,26 @@ var playState = {
       if (game.over) {
         return;
       }
+      var foodType = ['burger', 'hotdog', 'pizza1', 'fries', 'cola', 'donut',
+        'ice cream cone', 'ice cream bar', 'purple pickle'][game.rnd.integerInRange(0, 8)];
       var food = game.foods.create(
         10, 
         game.rnd.integerInRange(196, 440), 
         'sprites', 
-        ['burger','hotdog', 'pizza1', 'fries', 'cola', 'donut', 
-        'ice cream cone', 'ice cream bar', 'purple pickle'][game.rnd.integerInRange(0, 8)]
+        foodType
       );
       game.physics.enable(food, Phaser.Physics.ARCADE);
       food.body.velocity.setTo(400 + game.rnd.integerInRange(0, 200), 0);
       food.body.allowGravity = false;
       food.body.immovable = true;
+      food.shadow = food.addChild(game.make.sprite(0, 0, 'sprites', foodType));
+      food.shadow.tint = 0x000000;
+      food.shadow.alpha = 0.5 * food.y / 576;
+      food.shadow.scale.x = 0.75 * food.y / 576;
+      food.shadow.scale.y = 0.3 * food.y / 576;
+      food.shadow.x = (576 - food.y) / 10;
+      food.shadow.y = 544 - food.y;
+      
     });
 
     game.input.mouse.start();
@@ -101,11 +114,13 @@ var playState = {
 
   update: function () {
     game.physics.arcade.collide(game.lips, game.foods, function (lips, food) {
-      game.add.tween(food.scale).to({
-        x: 0,
-        y: 0
-      }, 50, Phaser.Easing.Circular.In, true);
+      food.destroy();
     });
+    game.lipsShadow.alpha = 0.5 * game.lips.y / 576;
+    game.lipsShadow.scale.x = 0.75 * game.lips.y / 576;
+    game.lipsShadow.scale.y = 0.3 * game.lips.y / 576;
+    game.lipsShadow.x = 980 + (576 - game.lips.y) / 10;
+    game.lips.bringToTop();
   }
 
 }

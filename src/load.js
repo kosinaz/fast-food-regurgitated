@@ -2,6 +2,8 @@ var loadState = {
 
   preload: function () {
 
+    game.add.text(576, 288, 'Loading... Please wait.', game.textStyle);
+
     /**
      * Load the sprites.
      */

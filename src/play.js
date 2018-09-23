@@ -54,6 +54,17 @@ var playState = {
     game.crumbEmitter.setScale(0.3, 0.3, 0.3, 0.3);
     game.crumbEmitter.setXSpeed(-100, -200);
     game.crumbEmitter.setYSpeed(-300, -400);
+    game.dropEmitter = game.add.emitter(512, 388, 100);
+    game.dropEmitter.makeParticles('sprites', 'drop');
+    game.dropEmitter.gravity = 300;
+    game.dropEmitter.setXSpeed(-200, -300);
+    game.dropEmitter.setYSpeed(-400, -500);
+    game.dustEmitter = game.add.emitter(512, 388, 100);
+    game.dustEmitter.makeParticles('sprites', 'dust');
+    game.dustEmitter.gravity = 100;
+    game.dustEmitter.setXSpeed(-100, 100);
+    game.dustEmitter.setYSpeed(-150, -250);
+
     game.add.sprite(32, 32, 'sprites',
       game.total['burger'] > 0 ? 'burger on' : 'burger off');
     game.add.sprite(32 + 128, 32, 'sprites',
@@ -140,6 +151,9 @@ var playState = {
     game.lips.body.onWorldBounds = new Phaser.Signal();
     game.lips.body.onWorldBounds.add(function () {
       game.hitTheGround = true;
+      game.dustEmitter.x = game.lips.x;
+      game.dustEmitter.y = game.lips.y;
+      game.dustEmitter.start(true, 2000, null, 4);
       playState.createSummaryScreen();
     });
     game.lips.body.velocity.setTo(0, -400);
@@ -258,6 +272,9 @@ var playState = {
           }
         }
         game.add.audio('burp', 0.6).play();
+        game.dropEmitter.x = lips.x;
+        game.dropEmitter.y = lips.y;
+        game.dropEmitter.start(true, 2000, null, 10);
       } else {
         if (food.data === 'cola') {
           game.add.audio('drink', 0.3).play();
@@ -395,7 +412,7 @@ var playState = {
         game.add.text(512, 420, 'You have finished the game! Click on the Continue button to return to the menu!', game.textStyle);
       }
       continueButton.events.onInputUp.add(function () {
-        if (game.level < 1) {
+        if (game.level < 6) {
           game.level += 1;
           game.state.restart();
         } else {

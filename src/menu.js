@@ -2,6 +2,8 @@ var menuState = {
 
   create: function () {
 
+    game.add.text(150, 500, 'Controls:\nJump: Spacebar / Left mouse button\n"Bite the fast food not the dust!"', game.textStyle).fontSize = 14;
+
     game.stage.backgroundColor = '#66b4e2';
     var title, subtitle, startGameButton, creditsButton;
     game.add.sprite(512, 160, 'sprites', 'title_off');

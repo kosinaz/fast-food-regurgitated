@@ -10,15 +10,20 @@ var playState = {
     game.foodOrder = ['purple pickle', 'purple pickle', 'purple pickle', 'purple pickle', 'purple pickle'];
     var totalCalorie = 3000;
     var calorie = 0;
+    var total = {
+      'burger': 0,
+      'hotdog': 0,
+      'pizza8': 0,
+      'fries': 0,
+      'cola': 0
+    }
     while (calorie < totalCalorie) {
       var food = [
         'burger', 
-        'hotdog', 
-        'pizza8', 
-        'fries', 
         'cola'
-      ][game.rnd.integerInRange(0, 4)];
+      ][game.rnd.integerInRange(0, 1)];
       calorie += game.calories.alacarte[food];
+      total[food] += 1;
       game.foodOrder.push(food);
     }
     Phaser.ArrayUtils.shuffle(game.foodOrder);
@@ -44,40 +49,50 @@ var playState = {
     game.crumbEmitter.setScale(0.3, 0.3, 0.3, 0.3);
     game.crumbEmitter.setXSpeed(-100, -200);
     game.crumbEmitter.setYSpeed(-300, -400);
-
-    game.add.sprite(32, 32, 'sprites', 'burger on');
-    game.add.sprite(32 + 128, 32, 'sprites', 'hotdog off');
-    game.add.sprite(120, 80, 'sprites', 'bun off');
-    game.add.sprite(72 + 128, 80, 'sprites', 'sausage off');
-    game.add.sprite(32 + 128 * 2, 32, 'sprites', 'pizza off');
-    game.add.sprite(32 + 128 * 2, 80, 'sprites', 'pizza slice off');
-    game.add.sprite(32 + 128 * 3, 32, 'sprites', 'fries off');
-    game.add.sprite(32 + 128 * 4, 32, 'sprites', 'cola on');
-    game.add.sprite(32 + 128 * 5, 32, 'sprites', 'donut off');
-    game.add.sprite(32 + 128 * 6, 32, 'sprites', 'ice cream cone off');
-    game.add.sprite(32 + 128 * 7, 32, 'sprites', 'ice cream bar off');
+    game.add.sprite(32, 32, 'sprites', 
+      total['burger'] > 0 ? 'burger on' : 'burger off');
+    game.add.sprite(32 + 128, 32, 'sprites',
+      total['hotdog'] > 0 ? 'hotdog on' : 'hotdog off');
+    game.add.sprite(120, 80, 'sprites',
+      total['hotdog'] > 0 ? 'bun on' : 'bun off');
+    game.add.sprite(72 + 128, 80, 'sprites',
+      total['hotdog'] > 0 ? 'sausage on' : 'sausage off');
+    game.add.sprite(32 + 128 * 2, 32, 'sprites',
+      total['pizza8'] > 0 ? 'pizza on' : 'pizza off');
+    game.add.sprite(32 + 128 * 2, 80, 'sprites',
+      total['pizza8'] > 0 ? 'pizza slice on' : 'pizza slice off');
+    game.add.sprite(32 + 128 * 3, 32, 'sprites',
+      total['fries'] > 0 ? 'fries on' : 'fries off');
+    game.add.sprite(32 + 128 * 4, 32, 'sprites',
+      total['cola'] > 0 ? 'cola on' : 'cola off');
+    game.add.sprite(32 + 128 * 5, 32, 'sprites',
+      total['fries'] > 0 ? 'donut on' : 'donut off');
+    game.add.sprite(32 + 128 * 6, 32, 'sprites',
+      total['hotdog'] > 0 ? 'ice cream cone on' : 'ice cream cone off');
+    game.add.sprite(32 + 128 * 7, 32, 'sprites',
+      total['pizza8'] > 0 ? 'ice cream bar on' : 'ice cream bar off');
 
     game.counter = {};
-    game.counter['burger'] = game.add.text(80, 32, '0 / 9', game.textStyle);
+    game.counter['burger'] = game.add.text(80, 32, '0 / ' + total['burger'], game.textStyle);
     game.counter['hotdog'] = game.add.text(80 + 128, 32, 
-      '0 / 0', game.textStyle);
+      '0 / ' + total['hotdog'], game.textStyle);
     game.counter['bun'] = game.add.text(152, 80, '0', game.textStyle);
     game.counter['sausage'] = game.add.text(136 + 96, 80, 
       '0', game.textStyle);
     game.counter['pizza8'] = game.add.text(80 + 128 * 2, 32, 
-      '0 / 0', game.textStyle);
+      '0 / ' + total['pizza8'], game.textStyle);
     game.counter['pizza1'] = game.add.text(64 + 128 * 2, 80, 
       '0', game.textStyle);
     game.counter['fries'] = game.add.text(80 + 128 * 3, 32, 
-      '0 / 0', game.textStyle);
+      '0 / ' + total['fries'], game.textStyle);
     game.counter['cola'] = game.add.text(80 + 128 * 4, 32, 
-      '0 / 9', game.textStyle);
-    game.counter['donut'] = game.add.text(80 + 128 * 5, 32, 
-      '0 / 0', game.textStyle);
-    game.counter['ice cream cone'] = game.add.text(80 + 128 * 6,
-      32, '0 / 0', game.textStyle);
-    game.counter['ice cream bar'] = game.add.text(80 + 128 * 7, 32,
-      '0 / 0', game.textStyle);
+      '0 / ' + total['cola'], game.textStyle);
+    game.counter['donut'] = game.add.text(64 + 128 * 5, 32, 
+      '0', game.textStyle);
+    game.counter['ice cream cone'] = game.add.text(64 + 128 * 6,
+      32, '0', game.textStyle);
+    game.counter['ice cream bar'] = game.add.text(64 + 128 * 7, 32,
+      '0', game.textStyle);
   
     game.timer = game.add.text(512, 88, '0:15', game.textStyle);
     game.timer.fontSize = 36;

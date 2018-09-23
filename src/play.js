@@ -21,7 +21,7 @@ var playState = {
       'cola': 0
     }
     while (calorie < totalCalorie) {
-      var food = 
+      var food =
         Phaser.ArrayUtils.getRandomItem(game.levels[game.level].alacarte);
       calorie += game.calories.alacarte[food];
       total[food] += 1;
@@ -31,10 +31,8 @@ var playState = {
 
     game.eaten = {
       'burger': 0,
-      'hotdog': 0,
       'bun': 0,
       'sausage': 0,
-      'pizza8': 0,
       'pizza1': 0,
       'fries': 0,
       'cola': 0,
@@ -50,7 +48,7 @@ var playState = {
     game.crumbEmitter.setScale(0.3, 0.3, 0.3, 0.3);
     game.crumbEmitter.setXSpeed(-100, -200);
     game.crumbEmitter.setYSpeed(-300, -400);
-    game.add.sprite(32, 32, 'sprites', 
+    game.add.sprite(32, 32, 'sprites',
       total['burger'] > 0 ? 'burger on' : 'burger off');
     game.add.sprite(32 + 128, 32, 'sprites',
       total['hotdog'] > 0 ? 'hotdog on' : 'hotdog off');
@@ -75,26 +73,26 @@ var playState = {
 
     game.counter = {};
     game.counter['burger'] = game.add.text(80, 32, '0 / ' + total['burger'], game.textStyle);
-    game.counter['hotdog'] = game.add.text(80 + 128, 32, 
+    game.counter['hotdog'] = game.add.text(80 + 128, 32,
       '0 / ' + total['hotdog'], game.textStyle);
     game.counter['bun'] = game.add.text(152, 80, '0', game.textStyle);
-    game.counter['sausage'] = game.add.text(136 + 96, 80, 
+    game.counter['sausage'] = game.add.text(136 + 96, 80,
       '0', game.textStyle);
-    game.counter['pizza8'] = game.add.text(80 + 128 * 2, 32, 
+    game.counter['pizza8'] = game.add.text(80 + 128 * 2, 32,
       '0 / ' + total['pizza8'], game.textStyle);
-    game.counter['pizza1'] = game.add.text(64 + 128 * 2, 80, 
+    game.counter['pizza1'] = game.add.text(64 + 128 * 2, 80,
       '0', game.textStyle);
-    game.counter['fries'] = game.add.text(80 + 128 * 3, 32, 
+    game.counter['fries'] = game.add.text(80 + 128 * 3, 32,
       '0 / ' + total['fries'], game.textStyle);
-    game.counter['cola'] = game.add.text(80 + 128 * 4, 32, 
+    game.counter['cola'] = game.add.text(80 + 128 * 4, 32,
       '0 / ' + total['cola'], game.textStyle);
-    game.counter['donut'] = game.add.text(64 + 128 * 5, 32, 
+    game.counter['donut'] = game.add.text(64 + 128 * 5, 32,
       '0', game.textStyle);
     game.counter['ice cream cone'] = game.add.text(64 + 128 * 6,
       32, '0', game.textStyle);
     game.counter['ice cream bar'] = game.add.text(64 + 128 * 7, 32,
       '0', game.textStyle);
-  
+
     game.timer = game.add.text(512, 88, '0:15', game.textStyle);
     game.timer.fontSize = 36;
     game.timerPulse = game.add.tween(game.timer).to({
@@ -127,7 +125,7 @@ var playState = {
       'lips1'
     ], 30, true);
     game.lips.animations.play('eat');
-    
+
 
     game.foods = game.add.group();
 
@@ -155,50 +153,82 @@ var playState = {
     });
 
     game.time.events.repeat(13000 / game.foodOrder.length,
-      game.foodOrder.length, function() {
-      if (game.over) {
-        return;
-      }
-      var foodType = game.foodOrder.pop();
-      var food = game.foods.create(
-        10, 
-        game.rnd.integerInRange(196, 440), 
-        'sprites', 
-        foodType
-      );
-      food.data = foodType;
-      game.physics.enable(food, Phaser.Physics.ARCADE);
-      food.body.velocity.setTo(400 + game.rnd.integerInRange(0, 200), 0);
-      food.body.allowGravity = false;
-      food.body.immovable = true;
-      food.shadow = food.addChild(game.make.sprite(0, 0, 'sprites', foodType));
-      food.shadow.tint = 0x000000;
-      food.shadow.alpha = 0.5 * food.y / 576;
-      food.shadow.scale.x = 0.75 * food.y / 576;
-      food.shadow.scale.y = 0.3 * food.y / 576;
-      food.shadow.x = (576 - food.y) / 10;
-      food.shadow.y = 544 - food.y;
-      if (foodType === 'hotdog')
-      game.time.events.add(500, function () {
-        var sausage = game.foods.create(food.x, food.y, 'sprites', 'sausage');
-        sausage.data = 'sausage';
-        game.physics.enable(sausage, Phaser.Physics.ARCADE);
-        sausage.body.velocity.setTo(700, 0);
-        sausage.body.allowGravity = false;
-        sausage.body.immovable = true;
-        sausage.shadow = sausage.addChild(game.make.sprite(0, 0, 'sprites', 'sausage'));
-        sausage.shadow.tint = 0x000000;
-        sausage.shadow.alpha = 0.5 * sausage.y / 576;
-        sausage.shadow.scale.x = 0.75 * sausage.y / 576;
-        sausage.shadow.scale.y = 0.3 * sausage.y / 576;
-        sausage.shadow.x = (576 - sausage.y) / 10;
-        sausage.shadow.y = 544 - sausage.y;
-        sausage.sendToBack();
-        food.loadTexture('sprites', 'bun');
-        food.data = 'bun';
-      },{food: food});
-      
-    });
+      game.foodOrder.length,
+      function () {
+        if (game.over) {
+          return;
+        }
+        var foodType = game.foodOrder.pop();
+        var food = game.foods.create(
+          10,
+          game.rnd.integerInRange(196, 440),
+          'sprites',
+          foodType
+        );
+        food.data = foodType;
+        game.physics.enable(food, Phaser.Physics.ARCADE);
+        food.body.velocity.setTo(400 + game.rnd.integerInRange(0, 200), 0);
+        food.body.allowGravity = false;
+        food.body.immovable = true;
+        food.shadow = food.addChild(game.make.sprite(0, 0, 'sprites', foodType));
+        food.shadow.tint = 0x000000;
+        food.shadow.alpha = 0.5 * food.y / 576;
+        food.shadow.scale.x = 0.75 * food.y / 576;
+        food.shadow.scale.y = 0.3 * food.y / 576;
+        food.shadow.x = (576 - food.y) / 10;
+        food.shadow.y = 544 - food.y;
+        if (foodType === 'hotdog') {
+          game.time.events.add(500, function () {
+            var sausage = game.foods.create(food.x, food.y, 'sprites', 'sausage');
+            sausage.data = 'sausage';
+            game.physics.enable(sausage, Phaser.Physics.ARCADE);
+            sausage.body.velocity.setTo(700, 0);
+            sausage.body.allowGravity = false;
+            sausage.body.immovable = true;
+            sausage.shadow = sausage.addChild(game.make.sprite(0, 0, 'sprites', 'sausage'));
+            sausage.shadow.tint = 0x000000;
+            sausage.shadow.alpha = 0.5 * sausage.y / 576;
+            sausage.shadow.scale.x = 0.75 * sausage.y / 576;
+            sausage.shadow.scale.y = 0.3 * sausage.y / 576;
+            sausage.shadow.x = (576 - sausage.y) / 10;
+            sausage.shadow.y = 544 - sausage.y;
+            sausage.sendToBack();
+            food.loadTexture('sprites', 'bun');
+            food.data = 'bun';
+          }, {
+            food: food
+          });
+        }
+        if (foodType === 'pizza8') {
+          food.body.velocity.setTo(300, 0);
+          var slicesLeft = 8;
+          game.time.events.repeat(200, 7, function () {
+            var slice = game.foods.create(food.x, food.y, 'sprites', 'pizza1');
+            slice.data = 'pizza1';
+            game.physics.enable(slice, Phaser.Physics.ARCADE);
+            slice.body.velocity.setTo(700, game.rnd.between(-50, 50));
+            slice.body.allowGravity = false;
+            slice.body.immovable = true;
+            slice.shadow = slice.addChild(game.make.sprite(0, 0, 'sprites', 'pizza1'));
+            slice.shadow.tint = 0x000000;
+            slice.shadow.alpha = 0.5 * slice.y / 576;
+            slice.shadow.scale.x = 0.75 * slice.y / 576;
+            slice.shadow.scale.y = 0.3 * slice.y / 576;
+            slice.shadow.x = (576 - slice.y) / 10;
+            slice.shadow.y = 544 - slice.y;
+            slice.sendToBack();
+            slicesLeft -= 1;
+            food.loadTexture('sprites', 'pizza' + slicesLeft);
+            if (slicesLeft === 1) {
+              food.body.velocity.setTo(600, 0);
+            }
+            food.data = 'pizza1';
+          }, {
+            food: food,
+            slicesLeft: slicesLeft
+          });
+        }
+      });
 
     game.input.mouse.start();
     game.input.mouse.mouseUpCallback = function () {
@@ -212,34 +242,39 @@ var playState = {
   },
 
   update: function () {
-    game.physics.arcade.collide(game.lips, game.foods, function (lips, food) { 
+    game.physics.arcade.collide(game.lips, game.foods, function (lips, food) {
       if (food.data === 'purple pickle') {
         for (var i = 0; i < 3; i += 1) {
           if (game.foodList.length > 0) {
             var burped = game.foodList.pop();
             game.eaten[burped] -= 1;
             game.counter[burped].text = game.eaten[burped] + '' +
-              game.counter[burped].text.substr(1);  
+              game.counter[burped].text.substr(1);
             var leftOver = game.add.sprite(lips.x, lips.y, 'sprites', burped + ' left-over');
             game.physics.enable(leftOver);
             leftOver.body.velocity.x = -250 + ((i + 1) % 2) * 50;
             leftOver.body.velocity.y = -50 * i - 300;
 
-          }        
-        }        
+          }
+        }
       } else {
         game.eaten[food.data] += 1;
         game.foodList.push(food.data);
-        if (food.data === 'bun' || food.data === 'sausage') {
-          game.counter['hotdog'].text = Math.min(game.eaten['sausage'], game.eaten['bun']) + '' +
-            game.counter['hotdog'].text.substr(1);
-          game.counter['sausage'].text = (game.eaten['sausage'] - Math.min(game.eaten['sausage'], game.eaten['bun']));
-          game.counter['bun'].text = (game.eaten['bun'] - Math.min(game.eaten['sausage'], game.eaten['bun']));
-        } else {
-          game.counter[food.data].text = game.eaten[food.data] + '' + 
+        if (
+          food.data !== 'sausage' && 
+          food.data !== 'bun' && 
+          food.data !== 'pizza1'
+        ) {
+          game.counter[food.data].text = game.eaten[food.data] + '' +
             game.counter[food.data].text.substr(1);
         }
       }
+      game.counter['pizza8'].text = Math.floor(game.eaten['pizza1'] / 8) + '' + game.counter['pizza8'].text.substr(1);
+      game.counter['pizza1'].text = (game.eaten['pizza1'] % 8);
+      game.counter['hotdog'].text = Math.min(game.eaten['sausage'], game.eaten['bun']) + '' +
+        game.counter['hotdog'].text.substr(1);
+      game.counter['sausage'].text = (game.eaten['sausage'] - Math.min(game.eaten['sausage'], game.eaten['bun']));
+      game.counter['bun'].text = (game.eaten['bun'] - Math.min(game.eaten['sausage'], game.eaten['bun']));
       game.crumbEmitter.x = lips.x;
       game.crumbEmitter.y = lips.y;
       game.crumbEmitter.start(true, 2000, null, 10);

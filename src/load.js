@@ -28,6 +28,10 @@ var loadState = {
     game.load.audio('sausage', 'assets/sausage.mp3');
     game.load.audio('pizza1', 'assets/pizza1.mp3');
     game.load.audio('pizza2', 'assets/pizza2.mp3');
+    game.load.audio('news', 'assets/news.mp3');
+    game.load.audio('news hit', 'assets/news hit.mp3');
+    game.load.audio('neon', 'assets/neon.mp3');
+    game.load.audio('splat', 'assets/splat.mp3');
 
     game.load.json('calories', 'data/calories.json');
     game.load.json('levels', 'data/levels.json');
@@ -48,7 +52,7 @@ var loadState = {
     /**
      * Start the game.
      */
-    game.state.start('menu');
+    game.state.start('intro');
 
   }
 

@@ -14,9 +14,11 @@ var creditsState = {
       'Title and menu music\n' +
       ' Strollin Thru The Fifties - Rasputin1963 (www.looperman.com)\n\n' +
       'Sound effects\n' +
-      ' Zapsplat (www.zapsplat.com)',
+      ' Zapsplat (www.zapsplat.com)\n\n' + 
+      'Vectors\n' +
+      ' Old Newspaper - Vecteezy (www.vecteezy.com)',
       game.textStyle
-    );
+    ).fontSize = 14;
 
     /**
      * Set the Start Game button

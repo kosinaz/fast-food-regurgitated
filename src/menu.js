@@ -18,10 +18,27 @@ var menuState = {
     game.add.tween(subtitle.scale).to({
       x: 1,
       y: 1
-    }, 1000, Phaser.Easing.Bounce.Out, true, 1500);
-    game.add.tween(subtitle).to({
+    }, 500, Phaser.Easing.Cubic.In, true, 1500);
+    var splat1 = game.add.tween(subtitle).to({
       y: 388
-    }, 1000, Phaser.Easing.Bounce.Out, true, 1500);
+    }, 500, Phaser.Easing.Cubic.In, true, 1500);
+    var splat2 = game.add.tween(subtitle).to({
+      y: 398
+    }, 2500, Phaser.Easing.Cubic.InOut);
+    splat1.chain(splat2);
+
+    game.add.audio('neon', 0.05, true).play();
+    game.time.events.add(2000, function () {
+      game.add.audio('splat', 0.5).play();
+      game.dropEmitter.start(true, 2000, null, 30);
+    });
+
+    game.dropEmitter = game.add.emitter(512, 388, 100);
+    game.dropEmitter.makeParticles('sprites', 'drop');
+    game.dropEmitter.gravity = 1000;
+    game.dropEmitter.setScale(0.5, 1, 0.5, 1);
+    game.dropEmitter.setXSpeed(-400, 400);
+    game.dropEmitter.setYSpeed(-400, 400);    
 
     /**
      * Set the Start Game button

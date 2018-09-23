@@ -3,6 +3,7 @@ var playState = {
   create: function () {
 
     game.over = false;
+    game.hitTheGround = false;
 
     game.add.sprite(512, 64, 'sprites', 'top');
     game.add.sprite(512, 544, 'sprites', 'pavement');
@@ -13,7 +14,7 @@ var playState = {
     }
     var totalCalorie = game.levels[game.level].calories;
     var calorie = 0;
-    var total = {
+    game.total = {
       'burger': 0,
       'hotdog': 0,
       'pizza8': 0,
@@ -24,7 +25,7 @@ var playState = {
       var food =
         Phaser.ArrayUtils.getRandomItem(game.levels[game.level].alacarte);
       calorie += game.calories.alacarte[food];
-      total[food] += 1;
+      game.total[food] += 1;
       game.foodOrder.push(food);
     }
     Phaser.ArrayUtils.shuffle(game.foodOrder);
@@ -54,43 +55,43 @@ var playState = {
     game.crumbEmitter.setXSpeed(-100, -200);
     game.crumbEmitter.setYSpeed(-300, -400);
     game.add.sprite(32, 32, 'sprites',
-      total['burger'] > 0 ? 'burger on' : 'burger off');
+      game.total['burger'] > 0 ? 'burger on' : 'burger off');
     game.add.sprite(32 + 128, 32, 'sprites',
-      total['hotdog'] > 0 ? 'hotdog on' : 'hotdog off');
+      game.total['hotdog'] > 0 ? 'hotdog on' : 'hotdog off');
     game.add.sprite(120, 80, 'sprites',
-      total['hotdog'] > 0 ? 'bun on' : 'bun off');
+      game.total['hotdog'] > 0 ? 'bun on' : 'bun off');
     game.add.sprite(72 + 128, 80, 'sprites',
-      total['hotdog'] > 0 ? 'sausage on' : 'sausage off');
+      game.total['hotdog'] > 0 ? 'sausage on' : 'sausage off');
     game.add.sprite(32 + 128 * 2, 32, 'sprites',
-      total['pizza8'] > 0 ? 'pizza on' : 'pizza off');
+      game.total['pizza8'] > 0 ? 'pizza on' : 'pizza off');
     game.add.sprite(32 + 128 * 2, 80, 'sprites',
-      total['pizza8'] > 0 ? 'pizza slice on' : 'pizza slice off');
+      game.total['pizza8'] > 0 ? 'pizza slice on' : 'pizza slice off');
     game.add.sprite(32 + 128 * 3, 32, 'sprites',
-      total['fries'] > 0 ? 'fries on' : 'fries off');
+      game.total['fries'] > 0 ? 'fries on' : 'fries off');
     game.add.sprite(32 + 128 * 4, 32, 'sprites',
-      total['cola'] > 0 ? 'cola on' : 'cola off');
+      game.total['cola'] > 0 ? 'cola on' : 'cola off');
     game.add.sprite(32 + 128 * 5, 32, 'sprites',
-      total['fries'] > 0 ? 'donut on' : 'donut off');
+      game.total['fries'] > 0 ? 'donut on' : 'donut off');
     game.add.sprite(32 + 128 * 6, 32, 'sprites',
-      total['hotdog'] > 0 ? 'ice cream cone on' : 'ice cream cone off');
+      game.total['hotdog'] > 0 ? 'ice cream cone on' : 'ice cream cone off');
     game.add.sprite(32 + 128 * 7, 32, 'sprites',
-      total['pizza8'] > 0 ? 'ice cream bar on' : 'ice cream bar off');
+      game.total['pizza8'] > 0 ? 'ice cream bar on' : 'ice cream bar off');
 
     game.counter = {};
-    game.counter['burger'] = game.add.text(80, 32, '0 / ' + total['burger'], game.textStyle);
+    game.counter['burger'] = game.add.text(80, 32, '0 / ' + game.total['burger'], game.textStyle);
     game.counter['hotdog'] = game.add.text(80 + 128, 32,
-      '0 / ' + total['hotdog'], game.textStyle);
+      '0 / ' + game.total['hotdog'], game.textStyle);
     game.counter['bun'] = game.add.text(152, 80, '0', game.textStyle);
     game.counter['sausage'] = game.add.text(136 + 96, 80,
       '0', game.textStyle);
     game.counter['pizza8'] = game.add.text(80 + 128 * 2, 32,
-      '0 / ' + total['pizza8'], game.textStyle);
+      '0 / ' + game.total['pizza8'], game.textStyle);
     game.counter['pizza1'] = game.add.text(64 + 128 * 2, 80,
       '0', game.textStyle);
     game.counter['fries'] = game.add.text(80 + 128 * 3, 32,
-      '0 / ' + total['fries'], game.textStyle);
+      '0 / ' + game.total['fries'], game.textStyle);
     game.counter['cola'] = game.add.text(80 + 128 * 4, 32,
-      '0 / ' + total['cola'], game.textStyle);
+      '0 / ' + game.total['cola'], game.textStyle);
     game.counter['donut'] = game.add.text(64 + 128 * 5, 32,
       '0', game.textStyle);
     game.counter['ice cream cone'] = game.add.text(64 + 128 * 6,
@@ -107,8 +108,7 @@ var playState = {
       game.timer.text = '0:' + (game.timerLoop.repeatCount < 10 ? '0' : '') + game.timerLoop.repeatCount
     });
     game.time.events.add(16000, function () {
-      game.level += 1;
-      game.state.restart();
+      playState.createSummaryScreen();
     });
 
     game.levelMusic.fadeTo(500, 0.3);
@@ -139,22 +139,8 @@ var playState = {
     game.lips.body.immovable = true;
     game.lips.body.onWorldBounds = new Phaser.Signal();
     game.lips.body.onWorldBounds.add(function () {
-      if (game.over) {
-        return;
-      }
-      game.time.events.removeAll();
-      game.timerPulse.stop();
-      game.over = true;
-      game.lips.animations.stop('eat');
-      game.lips.loadTexture('sprites', 'lips4');
-      game.levelMusic.fadeTo(500, 0.01);
-      var restartButton = game.add.text(512, 288, 'Restart', game.style);
-      restartButton.inputEnabled = true;
-      restartButton.events.onInputUp.add(function () {
-        game.state.restart();
-      });
-      restartButton.setShadow(2, 2, '#dfa8ba', 0);
-      game.add.audio('fail', 0.3).play();
+      game.hitTheGround = true;
+      playState.createSummaryScreen();
     });
     game.lips.body.velocity.setTo(0, -400);
 
@@ -326,6 +312,68 @@ var playState = {
     game.lipsShadow.scale.y = 0.3 * game.lips.y / 576;
     game.lipsShadow.x = 980 + (576 - game.lips.y) / 10;
     game.lips.bringToTop();
-  }
+  },
 
+  createSummaryScreen: function () {
+    if (game.over) {
+      return;
+    }
+    game.time.events.removeAll();
+    game.timerPulse.stop();
+    game.over = true;
+    game.levelMusic.fadeTo(500, 0.01);
+    game.lips.body.velocity.setTo(0, 0);
+    game.lips.body.allowGravity = false;
+
+    var alacarte = game.eaten['burger'] * game.calories.alacarte['burger'] +
+      game.eaten['sausage'] * game.calories.component['sausage'] +
+      game.eaten['bun'] * game.calories.component['bun'] +
+      game.eaten['pizza1'] * game.calories.component['pizza1'] +
+      game.eaten['fries'] * game.calories.alacarte['fries'] +
+      game.eaten['cola'] * game.calories.alacarte['cola'];
+    var reward = game.eaten['donut'] * game.calories.reward['donut'] +
+      game.eaten['ice cream cone'] * game.calories.reward['ice cream cone'] +
+      game.eaten['ice cream bar'] * game.calories.reward['ice cream bar'];
+    var total = game.total['burger'] * game.calories.alacarte['burger'] +
+      game.total['hotdog'] * game.calories.alacarte['hotdog'] +
+      game.total['pizza8'] * game.calories.alacarte['pizza8'] +
+      game.total['fries'] * game.calories.alacarte['fries'] +
+      game.total['cola'] * game.calories.alacarte['cola'];
+
+    game.add.text(512, 150, 'Ala Carte Calories: ' + alacarte, game.textStyle);
+    game.add.text(512, 190, 'Reward Calories: ' + reward, game.textStyle);
+    game.add.text(512, 230, 'Total Calories:', game.textStyle);
+    var percent = Math.floor((alacarte + reward) / total * 100);
+    game.add.text(512, 280, alacarte + reward + ' / ' + total + ' (' 
+      + percent + '%)', game.textStyle).fontSize = 40;
+    game.add.text(512, 330, 'Calories needed for the next level: 50%',
+      game.textStyle);
+
+    var restartButton = game.add.text(412, 488, 'Retry', game.style);
+    restartButton.inputEnabled = true;
+    restartButton.events.onInputUp.add(function () {
+      game.state.restart();
+    });
+    restartButton.setShadow(2, 2, '#dfa8ba', 0);
+    var continueButton = game.add.text(612, 488, 'Continue', game.offStyle);
+    continueButton.setShadow(2, 2, '#000', 0);
+    if (game.hitTheGround || percent < 50) {
+      game.lips.animations.stop('eat');
+      game.lips.loadTexture('sprites', 'lips4');
+      game.add.audio('fail', 0.2).play();
+    } else {   
+      continueButton.inputEnabled = true;
+      continueButton.setStyle(game.style);
+      continueButton.setShadow(2, 2, '#dfa8ba', 0);
+      continueButton.events.onInputUp.add(function () {
+        if (game.level < 6) {
+          game.level += 1;
+          game.state.restart();
+        } else {
+          game.level = 0;
+          game.state.start('credits');
+        }
+      });
+    }
+  }
 }

@@ -22,6 +22,12 @@ game.style = {
   font: 'bold 24pt Arial'
 };
 
+game.offStyle = {
+  alig: 'center',
+  fill: '#666666',
+  font: 'bold 24pt Arial'
+};
+
 game.textStyle = {
   fill: '#ff0',
   font: 'bold 16pt Arial'

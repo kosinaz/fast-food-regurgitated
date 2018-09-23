@@ -161,6 +161,11 @@ var playState = {
             game.eaten[burped] -= 1;
             game.counter[burped].text = game.eaten[burped] + '' +
               game.counter[burped].text.substr(1);  
+            var leftOver = game.add.sprite(lips.x, lips.y, 'sprites', burped + ' left-over');
+            game.physics.enable(leftOver);
+            leftOver.body.velocity.x = -350 + ((i + 1) % 2) * 100;
+            leftOver.body.velocity.y = -150 * i - 300;
+
           }        
         }        
       } else {

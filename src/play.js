@@ -20,6 +20,7 @@ var playState = {
       'ice cream cone': 0,
       'ice cream bar': 0
     };
+    game.foodList = [];
 
     game.add.sprite(32, 32, 'sprites', 'burger on');
     game.add.sprite(32 + 128, 32, 'sprites', 'hotdog off');
@@ -118,7 +119,7 @@ var playState = {
         return;
       }
       var foodType = ['burger', 'bun', 'sausage', 'pizza1', 'fries', 'cola', 'donut',
-        'ice cream cone', 'ice cream bar', 'purple pickle'][game.rnd.integerInRange(0, 8)];
+        'ice cream cone', 'ice cream bar', 'purple pickle'][game.rnd.integerInRange(0, 9)];
       var food = game.foods.create(
         10, 
         game.rnd.integerInRange(196, 440), 
@@ -142,7 +143,7 @@ var playState = {
 
     game.input.mouse.start();
     game.input.mouse.mouseUpCallback = function () {
-      if (game.over || game.lips.y < 244) {
+      if (game.over || game.lips.y < 212) {
         return;
       }
       game.add.audio('boing' + game.rnd.integerInRange(1, 3), 0.3).play();
@@ -152,13 +153,21 @@ var playState = {
   },
 
   update: function () {
-    game.physics.arcade.collide(game.lips, game.foods, function (lips, food) {
-      game.eaten[food.data] += 1;
+    game.physics.arcade.collide(game.lips, game.foods, function (lips, food) { 
       if (food.data === 'purple pickle') {
-        
+        for (var i = 0; i < 3; i += 1) {
+          if (game.foodList.length > 0) {
+            var burped = game.foodList.pop();
+            game.eaten[burped] -= 1;
+            game.counter[burped].text = game.eaten[burped] + '' +
+              game.counter[burped].text.substr(1);  
+          }        
+        }        
       } else {
+        game.eaten[food.data] += 1;
         game.counter[food.data].text = game.eaten[food.data] + '' + 
-        game.counter[food.data].text.substr(1);
+          game.counter[food.data].text.substr(1);
+        game.foodList.push(food.data);
       }
       food.destroy();
 

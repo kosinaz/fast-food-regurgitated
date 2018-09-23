@@ -236,9 +236,7 @@ var playState = {
     }
 
     var space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    space.onDown.add(game.jump);
-
-    
+    space.onDown.add(game.jump);   
 
   },
 

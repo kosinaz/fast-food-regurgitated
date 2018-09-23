@@ -17,8 +17,7 @@ var loadState = {
     game.load.audio('boing3', 'assets/boing3.mp3');
     game.load.audio('fail', 'assets/fail.mp3');
 
-    game.load.script('BlurX', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/BlurX.js');
-    game.load.script('BlurY', 'https://cdn.rawgit.com/photonstorm/phaser-ce/master/filters/BlurY.js');
+    game.load.json('calories', 'data/calories.json');
   },
 
   create: function () {
@@ -27,6 +26,8 @@ var loadState = {
      * Start the music.
      */
     game.titleMusic = game.add.audio('title', 0.3, true).play();
+
+    game.calories = game.cache.getJSON('calories');
 
     /**
      * Start the game.

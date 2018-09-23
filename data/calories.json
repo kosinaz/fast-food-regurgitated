@@ -1,0 +1,19 @@
+{
+  "alacarte": {
+    "burger": 400,
+    "hotdog": 550,
+    "pizza8": 2400,
+    "fries": 250,
+    "cola": 150
+  },
+  "component": {
+    "pizza1": 300,
+    "bun": 200,
+    "sausage": 350
+  },
+  "reward": {
+    "donut": 600,
+    "ice cream cone": 700,
+    "ice cream bar": 800
+  }
+}

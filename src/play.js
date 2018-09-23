@@ -7,6 +7,22 @@ var playState = {
     game.add.sprite(512, 64, 'sprites', 'top');
     game.add.sprite(512, 544, 'sprites', 'pavement');
 
+    game.foodOrder = ['purple pickle', 'purple pickle', 'purple pickle', 'purple pickle', 'purple pickle'];
+    var totalCalorie = 3000;
+    var calorie = 0;
+    while (calorie < totalCalorie) {
+      var food = [
+        'burger', 
+        'hotdog', 
+        'pizza8', 
+        'fries', 
+        'cola'
+      ][game.rnd.integerInRange(0, 4)];
+      calorie += game.calories.alacarte[food];
+      game.foodOrder.push(food);
+    }
+    Phaser.ArrayUtils.shuffle(game.foodOrder);
+
     game.eaten = {
       'burger': 0,
       'hotdog': 0,
@@ -121,12 +137,11 @@ var playState = {
       game.add.audio('fail', 0.3).play();
     });
 
-    game.time.events.loop(1000, function () {
+    game.time.events.repeat(13000 / game.foodOrder.length, game.foodOrder.length, function() {
       if (game.over) {
         return;
       }
-      var foodType = ['burger', 'bun', 'sausage', 'pizza1', 'fries', 'cola', 'donut',
-        'ice cream cone', 'ice cream bar', 'purple pickle'][game.rnd.integerInRange(0, 9)];
+      var foodType = game.foodOrder.pop();
       var food = game.foods.create(
         10, 
         game.rnd.integerInRange(196, 440), 

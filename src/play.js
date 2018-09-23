@@ -229,9 +229,16 @@ var playState = {
         }        
       } else {
         game.eaten[food.data] += 1;
-        game.counter[food.data].text = game.eaten[food.data] + '' + 
-          game.counter[food.data].text.substr(1);
         game.foodList.push(food.data);
+        if (food.data === 'bun' || food.data === 'sausage') {
+          game.counter['hotdog'].text = Math.min(game.eaten['sausage'], game.eaten['bun']) + '' +
+            game.counter['hotdog'].text.substr(1);
+          game.counter['sausage'].text = (game.eaten['sausage'] - Math.min(game.eaten['sausage'], game.eaten['bun']));
+          game.counter['bun'].text = (game.eaten['bun'] - Math.min(game.eaten['sausage'], game.eaten['bun']));
+        } else {
+          game.counter[food.data].text = game.eaten[food.data] + '' + 
+            game.counter[food.data].text.substr(1);
+        }
       }
       game.crumbEmitter.x = lips.x;
       game.crumbEmitter.y = lips.y;

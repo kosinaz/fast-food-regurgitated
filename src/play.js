@@ -6,6 +6,21 @@ var playState = {
 
     game.add.sprite(512, 64, 'sprites', 'top');
     game.add.sprite(512, 544, 'sprites', 'pavement');
+
+    game.eaten = {
+      'burger': 0,
+      'hotdog': 0,
+      'bun': 0,
+      'sausage': 0,
+      'pizza8': 0,
+      'pizza1': 0,
+      'fries': 0,
+      'cola': 0,
+      'donut': 0,
+      'ice cream cone': 0,
+      'ice cream bar': 0
+    };
+
     game.add.sprite(32, 32, 'sprites', 'burger on');
     game.add.sprite(32 + 128, 32, 'sprites', 'hotdog off');
     game.add.sprite(120, 80, 'sprites', 'bun off');
@@ -17,17 +32,28 @@ var playState = {
     game.add.sprite(32 + 128 * 5, 32, 'sprites', 'donut off');
     game.add.sprite(32 + 128 * 6, 32, 'sprites', 'ice cream cone off');
     game.add.sprite(32 + 128 * 7, 32, 'sprites', 'ice cream bar off');
-    game.add.text(80, 32, '0 / 9', game.textStyle);
-    game.add.text(80 + 128, 32, '0 / 0', game.textStyle);
-    game.add.text(152, 80, '0', game.textStyle);
-    game.add.text(136 + 96, 80, '0', game.textStyle);
-    game.add.text(80 + 128 * 2, 32, '0 / 0', game.textStyle);
-    game.add.text(64 + 128 * 2, 80, '0', game.textStyle);
-    game.add.text(80 + 128 * 3, 32, '0 / 0', game.textStyle);
-    game.add.text(80 + 128 * 4, 32, '0 / 9', game.textStyle);
-    game.add.text(80 + 128 * 5, 32, '0 / 0', game.textStyle);
-    game.add.text(80 + 128 * 6, 32, '0 / 0', game.textStyle);
-    game.add.text(80 + 128 * 7, 32, '0 / 0', game.textStyle);
+
+    game.counter = {};
+    game.counter['burger'] = game.add.text(80, 32, '0 / 9', game.textStyle);
+    game.counter['hotdog'] = game.add.text(80 + 128, 32, 
+      '0 / 0', game.textStyle);
+    game.counter['bun'] = game.add.text(152, 80, '0', game.textStyle);
+    game.counter['sausage'] = game.add.text(136 + 96, 80, 
+      '0', game.textStyle);
+    game.counter['pizza8'] = game.add.text(80 + 128 * 2, 32, 
+      '0 / 0', game.textStyle);
+    game.counter['pizza1'] = game.add.text(64 + 128 * 2, 80, 
+      '0', game.textStyle);
+    game.counter['fries'] = game.add.text(80 + 128 * 3, 32, 
+      '0 / 0', game.textStyle);
+    game.counter['cola'] = game.add.text(80 + 128 * 4, 32, 
+      '0 / 9', game.textStyle);
+    game.counter['donut'] = game.add.text(80 + 128 * 5, 32, 
+      '0 / 0', game.textStyle);
+    game.counter['ice cream cone'] = game.add.text(80 + 128 * 6,
+      32, '0 / 0', game.textStyle);
+    game.counter['ice cream bar'] = game.add.text(80 + 128 * 7, 32,
+      '0 / 0', game.textStyle);
   
     game.timer = game.add.text(512, 88, '0:15', game.textStyle);
     game.timer.fontSize = 36;
@@ -91,7 +117,7 @@ var playState = {
       if (game.over) {
         return;
       }
-      var foodType = ['burger', 'hotdog', 'pizza1', 'fries', 'cola', 'donut',
+      var foodType = ['burger', 'bun', 'sausage', 'pizza1', 'fries', 'cola', 'donut',
         'ice cream cone', 'ice cream bar', 'purple pickle'][game.rnd.integerInRange(0, 8)];
       var food = game.foods.create(
         10, 
@@ -99,6 +125,7 @@ var playState = {
         'sprites', 
         foodType
       );
+      food.data = foodType;
       game.physics.enable(food, Phaser.Physics.ARCADE);
       food.body.velocity.setTo(400 + game.rnd.integerInRange(0, 200), 0);
       food.body.allowGravity = false;
@@ -126,7 +153,15 @@ var playState = {
 
   update: function () {
     game.physics.arcade.collide(game.lips, game.foods, function (lips, food) {
+      game.eaten[food.data] += 1;
+      if (food.data === 'purple pickle') {
+        
+      } else {
+        game.counter[food.data].text = game.eaten[food.data] + '' + 
+        game.counter[food.data].text.substr(1);
+      }
       food.destroy();
+
     });
     game.lipsShadow.alpha = 0.5 * game.lips.y / 576;
     game.lipsShadow.scale.x = 0.75 * game.lips.y / 576;

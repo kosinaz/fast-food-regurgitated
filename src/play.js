@@ -22,6 +22,13 @@ var playState = {
     };
     game.foodList = [];
 
+    game.crumbEmitter = game.add.emitter(0, 0, 100);
+    game.crumbEmitter.makeParticles('sprites', 'crumbs');
+    game.crumbEmitter.gravity = 1000;
+    game.crumbEmitter.setScale(0.5, 0.5, 0.5, 0.5);
+    game.crumbEmitter.setXSpeed(-100, -200);
+    game.crumbEmitter.setYSpeed(-300, -400);
+
     game.add.sprite(32, 32, 'sprites', 'burger on');
     game.add.sprite(32 + 128, 32, 'sprites', 'hotdog off');
     game.add.sprite(120, 80, 'sprites', 'bun off');
@@ -163,8 +170,8 @@ var playState = {
               game.counter[burped].text.substr(1);  
             var leftOver = game.add.sprite(lips.x, lips.y, 'sprites', burped + ' left-over');
             game.physics.enable(leftOver);
-            leftOver.body.velocity.x = -350 + ((i + 1) % 2) * 100;
-            leftOver.body.velocity.y = -150 * i - 300;
+            leftOver.body.velocity.x = -250 + ((i + 1) % 2) * 50;
+            leftOver.body.velocity.y = -50 * i - 300;
 
           }        
         }        
@@ -174,6 +181,9 @@ var playState = {
           game.counter[food.data].text.substr(1);
         game.foodList.push(food.data);
       }
+      game.crumbEmitter.x = lips.x;
+      game.crumbEmitter.y = lips.y;
+      game.crumbEmitter.start(true, 2000, null, 3);
       food.destroy();
 
     });

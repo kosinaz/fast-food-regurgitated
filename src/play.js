@@ -25,7 +25,7 @@ var playState = {
     game.crumbEmitter = game.add.emitter(0, 0, 100);
     game.crumbEmitter.makeParticles('sprites', 'crumbs');
     game.crumbEmitter.gravity = 1000;
-    game.crumbEmitter.setScale(0.5, 0.5, 0.5, 0.5);
+    game.crumbEmitter.setScale(0.3, 0.3, 0.3, 0.3);
     game.crumbEmitter.setXSpeed(-100, -200);
     game.crumbEmitter.setYSpeed(-300, -400);
 
@@ -183,7 +183,7 @@ var playState = {
       }
       game.crumbEmitter.x = lips.x;
       game.crumbEmitter.y = lips.y;
-      game.crumbEmitter.start(true, 2000, null, 3);
+      game.crumbEmitter.start(true, 2000, null, 10);
       food.destroy();
 
     });

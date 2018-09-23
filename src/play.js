@@ -376,6 +376,7 @@ var playState = {
         game.add.text(512, 420, 'Click on the Retry button and try to eat more this time!', game.textStyle);
       }
     } else {   
+      game.add.audio('win', 0.2).play();
       continueButton.inputEnabled = true;
       continueButton.setStyle(game.style);
       continueButton.setShadow(2, 2, '#dfa8ba', 0);

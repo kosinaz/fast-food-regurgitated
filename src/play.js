@@ -171,6 +171,7 @@ var playState = {
         food.shadow.y = 544 - food.y;
         if (foodType === 'hotdog') {
           game.time.events.add(500, function () {
+            game.add.audio('sausage', 0.6).play();
             var sausage = game.foods.create(food.x, food.y, 'sprites', 'sausage');
             sausage.data = 'sausage';
             game.physics.enable(sausage, Phaser.Physics.ARCADE);
@@ -195,6 +196,7 @@ var playState = {
           food.body.velocity.setTo(300, 0);
           var slicesLeft = 8;
           game.time.events.repeat(200, 7, function () {
+            game.add.audio(game.rnd.pick(['pizza1', 'pizza2']), 0.3).play();
             var slice = game.foods.create(food.x, food.y, 'sprites', 'pizza1');
             slice.data = 'pizza1';
             game.physics.enable(slice, Phaser.Physics.ARCADE);
@@ -226,7 +228,7 @@ var playState = {
       if (game.over || game.lips.y < 212) {
         return;
       }
-      game.add.audio('boing' + game.rnd.integerInRange(1, 3), 0.3).play();
+      game.add.audio('boing' + game.rnd.integerInRange(1, 3), 0.2).play();
       game.lips.body.velocity.setTo(0, -400);
     }
 
@@ -253,10 +255,15 @@ var playState = {
             game.physics.enable(leftOver);
             leftOver.body.velocity.x = -250 + ((i + 1) % 2) * 50;
             leftOver.body.velocity.y = -50 * i - 300;
-
           }
         }
+        game.add.audio('burp', 0.6).play();
       } else {
+        if (food.data === 'cola') {
+          game.add.audio('drink', 0.3).play();
+        } else {
+          game.add.audio('eat', 0.3).play();
+        }
         game.eaten[food.data] += 1;
         game.foodList.push(food.data);
         if (food.data !== 'sausage' 
@@ -369,6 +376,7 @@ var playState = {
       game.lips.loadTexture('sprites', 'lips4');
       game.add.audio('fail', 0.2).play();
       if (game.hitTheGround) {
+        game.add.audio(game.rnd.pick(['hit1', 'hit2', 'hit3']), 0.6).play();
         game.add.text(512, 380, 'Oh, no! You hit the ground!', game.textStyle).fontSize = 40;
         game.add.text(512, 420, 'Click on the Retry button and stay in the air by hitting the spacebar or the left mouse button!', game.textStyle);
       } else {
@@ -387,10 +395,12 @@ var playState = {
         game.add.text(512, 420, 'You have finished the game! Click on the Continue button to return to the menu!', game.textStyle);
       }
       continueButton.events.onInputUp.add(function () {
-        if (game.level < 6) {
+        if (game.level < 1) {
           game.level += 1;
           game.state.restart();
         } else {
+          game.levelMusic.stop();
+          game.titleMusic = game.add.audio('title', 0.3, true).play();
           game.level = 0;
           game.state.start('credits');
         }

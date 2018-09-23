@@ -368,10 +368,23 @@ var playState = {
       game.lips.animations.stop('eat');
       game.lips.loadTexture('sprites', 'lips4');
       game.add.audio('fail', 0.2).play();
+      if (game.hitTheGround) {
+        game.add.text(512, 380, 'Oh, no! You hit the ground!', game.textStyle).fontSize = 40;
+        game.add.text(512, 420, 'Click on the Retry button and stay in the air by hitting the spacebar or the left mouse button!', game.textStyle);
+      } else {
+        game.add.text(512, 380, 'Oh, no! You failed to eat enough food!', game.textStyle).fontSize = 40;
+        game.add.text(512, 420, 'Click on the Retry button and try to eat more this time!', game.textStyle);
+      }
     } else {   
       continueButton.inputEnabled = true;
       continueButton.setStyle(game.style);
       continueButton.setShadow(2, 2, '#dfa8ba', 0);
+      game.add.text(512, 380, 'Congratulations!', game.textStyle).fontSize = 40;
+      if (game.level < 6) {
+        game.add.text(512, 420, 'You have finished the level! Click on the Continue button to start the next level!', game.textStyle);
+      } else {
+        game.add.text(512, 420, 'You have finished the game! Click on the Continue button to return to the menu!', game.textStyle);
+      }
       continueButton.events.onInputUp.add(function () {
         if (game.level < 6) {
           game.level += 1;

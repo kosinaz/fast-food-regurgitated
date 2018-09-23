@@ -1,0 +1,70 @@
+[
+  {
+    "alacarte": [
+      "burger",
+      "cola"
+    ],
+    "calories": 3000,
+    "purple pickles": 0
+  },
+  {
+    "alacarte": [
+      "burger",
+      "cola",
+      "fries"
+    ],
+    "calories": 4000,
+    "purple pickles": 0
+  },
+  {
+    "alacarte": [
+      "burger",
+      "cola",
+      "fries"
+    ],
+    "calories": 5000,
+    "purple pickles": 1
+  },
+  {
+    "alacarte": [
+      "burger",
+      "cola",
+      "fries",
+      "hotdog"
+    ],
+    "calories": 6000,
+    "purple pickles": 3
+  },
+  {
+    "alacarte": [
+      "burger",
+      "cola",
+      "fries",
+      "hotdog"
+    ],
+    "calories": 7000,
+    "purple pickles": 5
+  },
+  {
+    "alacarte": [
+      "burger",
+      "cola",
+      "fries",
+      "hotdog",
+      "pizza"
+    ],
+    "calories": 8000,
+    "purple pickles": 7
+  },
+  {
+    "alacarte": [
+      "burger",
+      "cola",
+      "fries",
+      "hotdog",
+      "pizza"
+    ],
+    "calories": 9000,
+    "purple pickles": 9
+  }
+]

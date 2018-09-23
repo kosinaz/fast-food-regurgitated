@@ -7,8 +7,11 @@ var playState = {
     game.add.sprite(512, 64, 'sprites', 'top');
     game.add.sprite(512, 544, 'sprites', 'pavement');
 
-    game.foodOrder = ['purple pickle', 'purple pickle', 'purple pickle', 'purple pickle', 'purple pickle'];
-    var totalCalorie = 3000;
+    game.foodOrder = [];
+    for (var i = 0; i < game.levels[game.level]['purple pickles']; i += 1) {
+      game.foodOrder.push('purple pickle');
+    }
+    var totalCalorie = game.levels[game.level].calories;
     var calorie = 0;
     var total = {
       'burger': 0,
@@ -18,10 +21,8 @@ var playState = {
       'cola': 0
     }
     while (calorie < totalCalorie) {
-      var food = [
-        'burger', 
-        'cola'
-      ][game.rnd.integerInRange(0, 1)];
+      var food = 
+        Phaser.ArrayUtils.getRandomItem(game.levels[game.level].alacarte);
       calorie += game.calories.alacarte[food];
       total[food] += 1;
       game.foodOrder.push(food);
@@ -103,6 +104,7 @@ var playState = {
       game.timer.text = '0:' + (game.timerLoop.repeatCount < 10 ? '0' : '') + game.timerLoop.repeatCount
     });
     game.time.events.add(16000, function () {
+      game.level += 1;
       game.state.restart();
     });
 

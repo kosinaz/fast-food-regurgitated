@@ -18,6 +18,7 @@ var loadState = {
     game.load.audio('fail', 'assets/fail.mp3');
 
     game.load.json('calories', 'data/calories.json');
+    game.load.json('levels', 'data/levels.json');
   },
 
   create: function () {
@@ -28,6 +29,9 @@ var loadState = {
     game.titleMusic = game.add.audio('title', 0.3, true).play();
 
     game.calories = game.cache.getJSON('calories');
+    game.levels = game.cache.getJSON('levels');
+
+    game.level = 0;
 
     /**
      * Start the game.

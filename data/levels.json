@@ -1,6 +1,13 @@
 [
   {
     "alacarte": [
+      "hotdog"
+    ],
+    "calories": 10000,
+    "purple pickles": 0
+  },
+  {
+    "alacarte": [
       "burger",
       "cola"
     ],

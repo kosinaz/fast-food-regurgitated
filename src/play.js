@@ -154,7 +154,8 @@ var playState = {
       game.add.audio('fail', 0.3).play();
     });
 
-    game.time.events.repeat(13000 / game.foodOrder.length, game.foodOrder.length, function() {
+    game.time.events.repeat(13000 / game.foodOrder.length,
+      game.foodOrder.length, function() {
       if (game.over) {
         return;
       }
@@ -177,6 +178,25 @@ var playState = {
       food.shadow.scale.y = 0.3 * food.y / 576;
       food.shadow.x = (576 - food.y) / 10;
       food.shadow.y = 544 - food.y;
+      if (foodType === 'hotdog')
+      game.time.events.add(500, function () {
+        var sausage = game.foods.create(food.x, food.y, 'sprites', 'sausage');
+        sausage.data = 'sausage';
+        game.physics.enable(sausage, Phaser.Physics.ARCADE);
+        sausage.body.velocity.setTo(700, 0);
+        sausage.body.allowGravity = false;
+        sausage.body.immovable = true;
+        sausage.shadow = sausage.addChild(game.make.sprite(0, 0, 'sprites', 'sausage'));
+        sausage.shadow.tint = 0x000000;
+        sausage.shadow.alpha = 0.5 * sausage.y / 576;
+        sausage.shadow.scale.x = 0.75 * sausage.y / 576;
+        sausage.shadow.scale.y = 0.3 * sausage.y / 576;
+        sausage.shadow.x = (576 - sausage.y) / 10;
+        sausage.shadow.y = 544 - sausage.y;
+        sausage.sendToBack();
+        food.loadTexture('sprites', 'bun');
+        food.data = 'bun';
+      },{food: food});
       
     });
 

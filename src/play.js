@@ -29,7 +29,17 @@ var playState = {
     game.add.text(80 + 128 * 6, 32, '0 / 0', game.textStyle);
     game.add.text(80 + 128 * 7, 32, '0 / 0', game.textStyle);
   
-
+    game.timer = game.add.text(512, 88, '0:15', game.textStyle);
+    game.timer.fontSize = 36;
+    game.timerPulse = game.add.tween(game.timer).to({
+      fontSize: 32
+    }, 1000, "Cubic", true, 0, 15);
+    game.timerLoop = game.time.events.repeat(1000, 16, function () {
+      game.timer.text = '0:' + (game.timerLoop.repeatCount < 10 ? '0' : '') + game.timerLoop.repeatCount
+    });
+    game.time.events.add(16000, function () {
+      game.state.restart();
+    });
 
     game.levelMusic.fadeTo(500, 0.3);
 
@@ -62,6 +72,8 @@ var playState = {
       if (game.over) {
         return;
       }
+      game.time.events.removeAll();
+      game.timerPulse.stop();
       game.over = true;
       game.lips.animations.stop('eat');
       game.lips.loadTexture('sprites', 'lips4');

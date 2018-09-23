@@ -222,14 +222,23 @@ var playState = {
         }
       });
 
-    game.input.mouse.start();
-    game.input.mouse.mouseUpCallback = function () {
+    game.jump = function () {
       if (game.over || game.lips.y < 212) {
         return;
       }
       game.add.audio('boing' + game.rnd.integerInRange(1, 3), 0.3).play();
       game.lips.body.velocity.setTo(0, -400);
     }
+
+    game.input.mouse.start();
+    game.input.mouse.mouseUpCallback = function () {
+      game.jump();
+    }
+
+    var space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    space.onDown.add(game.jump);
+
+    
 
   },
 

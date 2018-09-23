@@ -40,6 +40,11 @@ var playState = {
       'ice cream cone': 0,
       'ice cream bar': 0
     };
+    game.rewarded = {
+      'donut': 0,
+      'ice cream cone': 0,
+      'ice cream bar': 0
+    };
     game.foodList = [];
 
     game.crumbEmitter = game.add.emitter(0, 0, 100);
@@ -260,14 +265,48 @@ var playState = {
       } else {
         game.eaten[food.data] += 1;
         game.foodList.push(food.data);
-        if (
-          food.data !== 'sausage' && 
-          food.data !== 'bun' && 
-          food.data !== 'pizza1'
-        ) {
-          game.counter[food.data].text = game.eaten[food.data] + '' +
-            game.counter[food.data].text.substr(1);
+        if (food.data !== 'sausage' 
+          && food.data !== 'bun' 
+          && food.data !== 'pizza1') {
+            game.counter[food.data].text = game.eaten[food.data] + '' +
+              game.counter[food.data].text.substr(1);
         }
+      }
+      var rewardType = 'none';
+      if (game.eaten['burger'] > game.rewarded['donut'] 
+        && game.eaten['cola'] > game.rewarded['donut'] + game.rewarded['ice cream cone'] + game.rewarded['ice cream bar']
+        && game.eaten['fries'] > game.rewarded['donut'] + game.rewarded['ice cream cone'] + game.rewarded['ice cream bar']) {
+          game.rewarded['donut'] += 1;
+          rewardType = 'donut';
+      }
+      if (game.eaten['sausage'] > game.rewarded['ice cream cone'] &&
+        game.eaten['bun'] > game.rewarded['ice cream cone'] &&
+        game.eaten['cola'] > game.rewarded['donut'] + game.rewarded['ice cream cone'] + game.rewarded['ice cream bar'] &&
+        game.eaten['fries'] > game.rewarded['donut'] + game.rewarded['ice cream cone'] + game.rewarded['ice cream bar']) {
+        game.rewarded['ice cream cone'] += 1;
+        rewardType = 'ice cream cone';
+      }
+      if (Math.floor(game.eaten['pizza1'] / 8) > game.rewarded['ice cream bar']
+       && game.eaten['cola'] > game.rewarded['donut'] + game.rewarded['ice cream cone'] + game.rewarded['ice cream bar'] &&
+        game.eaten['fries'] > game.rewarded['donut'] + game.rewarded['ice cream cone'] + game.rewarded['ice cream bar']) {
+        game.rewarded['ice cream bar'] += 1;
+        rewardType = 'ice cream bar';
+      }
+      if (rewardType !== 'none') {
+          var reward = game.foods.create(10, game.rnd.between(196, 440),
+            'sprites', rewardType);
+          reward.data = rewardType;
+          game.physics.enable(reward, Phaser.Physics.ARCADE);
+          reward.body.velocity.setTo(300, 0);
+          reward.body.allowGravity = false;
+          reward.body.immovable = true;
+          reward.shadow = reward.addChild(game.make.sprite(0, 0, 'sprites', rewardType));
+          reward.shadow.tint = 0x000000;
+          reward.shadow.alpha = 0.5 * reward.y / 576;
+          reward.shadow.scale.x = 0.75 * reward.y / 576;
+          reward.shadow.scale.y = 0.3 * reward.y / 576;
+          reward.shadow.x = (576 - reward.y) / 10;
+          reward.shadow.y = 544 - reward.y;
       }
       game.counter['pizza8'].text = Math.floor(game.eaten['pizza1'] / 8) + '' + game.counter['pizza8'].text.substr(1);
       game.counter['pizza1'].text = (game.eaten['pizza1'] % 8);

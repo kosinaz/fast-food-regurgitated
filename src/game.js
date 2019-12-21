@@ -8,7 +8,7 @@ import LoadScene from './loadScene.js';
 
 new Phaser.Game({
   type: Phaser.AUTO,
-  backgroundColor: '#ffffff',
+  backgroundColor: '#4adbff',
   scale: {
     parent: 'game-container',
     mode: Phaser.Scale.FIT,

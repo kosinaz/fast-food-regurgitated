@@ -1,35 +1,27 @@
-/**
- * Create the game with a 1024*576 screen size.
- */ 
-var game = new Phaser.Game(1024, 576, Phaser.AUTO, '');
+import LoadScene from './loadScene.js';
+// import TitleScene from './titleScene.js';
+// import MenuScene from './menuScene.js';
+// import LevelScene from './levelScene.js';
+// import EndScene from './endScene.js';
+// import ScoreScene from './scoreScene.js';
+// import CreditsScene from './creditsScene.js';
 
-/**
- * Create the game states.
- */ 
-game.state.add('load', loadState, true);
-game.state.add('intro', introState);
-game.state.add('menu', menuState);
-game.state.add('play', playState);
-game.state.add('credits', creditsState);
-
-PIXI.Sprite.defaultAnchor = {
-  x: 0.5,
-  y: 0.5
-}
-
-game.style = {
-  alig: 'center',
-  fill: '#fbf5f7',
-  font: 'bold 24pt Arial'
-};
-
-game.offStyle = {
-  alig: 'center',
-  fill: '#666666',
-  font: 'bold 24pt Arial'
-};
-
-game.textStyle = {
-  fill: '#ff0',
-  font: 'bold 16pt Arial'
-};
+new Phaser.Game({
+  type: Phaser.AUTO,
+  backgroundColor: '#ffffff',
+  scale: {
+    parent: 'game-container',
+    mode: Phaser.Scale.FIT,
+    width: 1024,
+    height: 576,
+  },
+  scene: [
+    LoadScene,
+    // TitleScene,
+    // MenuScene,
+    // LevelScene,
+    // EndScene,
+    // ScoreScene,
+    // CreditsScene,
+  ],
+});

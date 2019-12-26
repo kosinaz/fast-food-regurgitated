@@ -39,19 +39,23 @@ export default class LoadScene extends Phaser.Scene {
    * @memberof LoadScene
    */
   preload() {
-    const barimage = this.add.image(10, -4, 'bar');
     this.add.container(512, 288, [
       this.add.image(0, 0, 'barborder'),
-      barimage,
+      this.add.image(10, -4, 'bar'),
       this.add.text(-95, -55, 'Loading...', {
         fontSize: '36px',
         fontFamily: 'font',
       }),
-    ]);
+    ]).list[1].frame.cutWidth = 0;
     this.load.on('progress', (value) => {
-      barimage.frame.cutWidth = barimage.width * value;
+      this.tweens.add({
+        targets: this.children.list[0].list[1].frame,
+        cutWidth: this.children.list[0].list[1].width * value,
+        ease: 'Quad',
+        duration: 300,
+      });
     });
-    this.load.atlas('sprites', 'image/sprites.png', 'data/sprites.json');
+    this.load.atlas('game', 'image/game.png', 'image/game.json');
     this.load.audio('title', 'audio/title.mp3');
     this.load.audio('level', 'audio/level.mp3');
     this.load.audio('boing1', 'audio/boing1.mp3');
@@ -74,5 +78,36 @@ export default class LoadScene extends Phaser.Scene {
     this.load.audio('splat', 'audio/splat.mp3');
     this.load.json('calories', 'data/calories.json');
     this.load.json('levels', 'data/levels.json');
+  }
+
+  /**
+   * Creates the start button.
+   *
+   * @memberof LoadScene
+   */
+  create() {
+    this.tweens.add({
+      targets: this.children.list[0],
+      scale: 0,
+      ease: 'Quint.easeIn',
+      duration: 300,
+      onComplete: () => {
+        this.children.list[0].destroy();
+        this.add.container(512, 288, [
+          this.add.image(0, 0, 'game', 'button'),
+          this.add.text(0, -6, 'Start', {
+            fontSize: '42px',
+            fontFamily: 'font',
+          }),
+        ]).scale = 0;
+        this.children.list[0].list[1].setOrigin(0.5);
+        this.tweens.add({
+          targets: this.children.list[0],
+          scale: 1,
+          ease: 'Bounce',
+          duration: 300,
+        });
+      },
+    });
   }
 }

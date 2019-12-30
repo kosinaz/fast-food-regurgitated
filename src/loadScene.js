@@ -24,8 +24,8 @@ export default class LoadScene extends Phaser.Scene {
           },
           {
             type: 'image',
-            key: 'barborder',
-            url: 'image/load/barborder.png',
+            key: 'border',
+            url: 'image/load/border.png',
           },
         ],
       },
@@ -40,12 +40,8 @@ export default class LoadScene extends Phaser.Scene {
    */
   preload() {
     this.add.container(512, 288, [
-      this.add.image(0, 0, 'barborder'),
-      this.add.image(10, -4, 'bar'),
-      this.add.text(-95, -55, 'Loading...', {
-        fontSize: '36px',
-        fontFamily: 'font',
-      }),
+      this.add.image(0, 0, 'border'),
+      this.add.image(-3, -10, 'bar'),
     ]).list[1].frame.cutWidth = 0;
     this.load.on('progress', (value) => {
       this.tweens.add({
@@ -93,20 +89,16 @@ export default class LoadScene extends Phaser.Scene {
       duration: 300,
       onComplete: () => {
         this.children.list[0].destroy();
-        this.add.container(512, 288, [
-          this.add.image(0, 0, 'game', 'button').setInteractive(),
-          this.add.text(0, -6, 'Start', {
-            fontSize: '42px',
-            fontFamily: 'font',
-          }).setOrigin(0.5),
-        ]).scale = 0;
+        this.add.image(512, 288, 'game', 'next')
+            .setInteractive()
+            .scale = 0;
         this.tweens.add({
           targets: this.children.list[0],
           scale: 1,
           ease: 'Bounce',
           duration: 300,
           onComplete: () => {
-            this.children.list[0].list[0].once('pointerup', () => {
+            this.children.list[0].once('pointerup', () => {
               this.tweens.add({
                 targets: this.children.list[0],
                 scale: 0.8,
@@ -122,8 +114,8 @@ export default class LoadScene extends Phaser.Scene {
         });
       },
     });
-    this.cameras.main.once('camerafadeoutcomplete', (camera) => {
-      camera.fadeIn(100);
+    this.cameras.main.once('camerafadeoutcomplete', () => {
+      this.scene.start('HomeScene');
     });
   }
 }

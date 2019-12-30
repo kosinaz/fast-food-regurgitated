@@ -1,6 +1,5 @@
 import LoadScene from './loadScene.js';
-// import TitleScene from './titleScene.js';
-// import MenuScene from './menuScene.js';
+import HomeScene from './homeScene.js';
 // import LevelScene from './levelScene.js';
 // import EndScene from './endScene.js';
 // import ScoreScene from './scoreScene.js';
@@ -17,8 +16,7 @@ new Phaser.Game({
   },
   scene: [
     LoadScene,
-    // TitleScene,
-    // MenuScene,
+    HomeScene,
     // LevelScene,
     // EndScene,
     // ScoreScene,

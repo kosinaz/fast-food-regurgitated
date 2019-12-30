@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "info",
+	"filename": "button",
 	"frame": {"x":0,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
@@ -9,7 +9,7 @@
 	"sourceSize": {"w":96,"h":100}
 },
 {
-	"filename": "next",
+	"filename": "home",
 	"frame": {"x":96,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
@@ -17,7 +17,7 @@
 	"sourceSize": {"w":96,"h":100}
 },
 {
-	"filename": "score",
+	"filename": "info",
 	"frame": {"x":192,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
@@ -25,7 +25,7 @@
 	"sourceSize": {"w":96,"h":100}
 },
 {
-	"filename": "settings",
+	"filename": "next",
 	"frame": {"x":288,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
@@ -33,20 +33,44 @@
 	"sourceSize": {"w":96,"h":100}
 },
 {
-	"filename": "trophy",
+	"filename": "score",
 	"frame": {"x":384,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
 	"sourceSize": {"w":96,"h":100}
+},
+{
+	"filename": "settings",
+	"frame": {"x":480,"y":0,"w":96,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
+	"sourceSize": {"w":96,"h":100}
+},
+{
+	"filename": "trophy",
+	"frame": {"x":576,"y":0,"w":96,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
+	"sourceSize": {"w":96,"h":100}
+},
+{
+	"filename": "widewindow",
+	"frame": {"x":0,"y":100,"w":624,"h":500},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":624,"h":500},
+	"sourceSize": {"w":624,"h":500}
 }],
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "game.png",
 	"format": "RGBA8888",
-	"size": {"w":480,"h":100},
+	"size": {"w":672,"h":600},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:1a87e5b88f6028983d42e612db278f31:d10658d5d0561f8241c236f8c2bea897:fc2835210f98bae8e8c1b7f0a84c9321$"
+	"smartupdate": "$TexturePacker:SmartUpdate:cb1f94c452ccbc044f79221cdd9a31e4:e08d38a3a44c17d890c0dc60277e282a:fc2835210f98bae8e8c1b7f0a84c9321$"
 }
 }

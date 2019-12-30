@@ -17,7 +17,7 @@ export default class HomeScene extends Phaser.Scene {
   /**
    * Creates the content of the HomeScene.
    *
-   * @memberof LoadScene
+   * @memberof HomeScene
    */
   create() {
     this.cameras.main.fadeIn(100);
@@ -38,21 +38,24 @@ export default class HomeScene extends Phaser.Scene {
         .setStroke('#fff', 25)
         .setShadow(3, 6, '#444', 2, true, true);
     this.add.container(512, 485, [
-      this.add.image(-250, 0, 'game', 'next').setData('start', 'SelectScene'),
-      this.add.image(-125, 0, 'game', 'score').setData('start', 'ScoreScene'),
-      this.add.image(0, 0, 'game', 'trophy').setData('start', 'TrophyScene'),
-      this.add.image(125, 0, 'game', 'info').setData('start', 'InfoScene'),
+      this.add.image(-250, 0, 'game', 'next').setData('run', 'SelectScene'),
+      this.add.image(-125, 0, 'game', 'score').setData('run', 'ScoreScene'),
+      this.add.image(0, 0, 'game', 'trophy').setData('run', 'TrophyScene'),
+      this.add.image(125, 0, 'game', 'info').setData('run', 'InfoScene'),
       this.add.image(250, 0, 'game', 'settings')
-          .setData('start', 'SettingsScene'),
+          .setData('run', 'SettingsScene'),
     ]).each((image) => {
       image.setInteractive();
-      image.once('pointerup', () => this.tweens.add({
+      image.on('pointerup', () => this.tweens.add({
         targets: image,
         scale: 0.8,
         ease: 'Quad',
         duration: 70,
         yoyo: true,
-        onComplete: () => this.scene.start(image.getData('start')),
+        onComplete: () => {
+          this.scene.pause();
+          this.scene.run(image.getData('run'));
+        },
       }));
     });
   }

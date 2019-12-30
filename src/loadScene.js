@@ -94,20 +94,36 @@ export default class LoadScene extends Phaser.Scene {
       onComplete: () => {
         this.children.list[0].destroy();
         this.add.container(512, 288, [
-          this.add.image(0, 0, 'game', 'button'),
+          this.add.image(0, 0, 'game', 'button').setInteractive(),
           this.add.text(0, -6, 'Start', {
             fontSize: '42px',
             fontFamily: 'font',
-          }),
+          }).setOrigin(0.5),
         ]).scale = 0;
-        this.children.list[0].list[1].setOrigin(0.5);
         this.tweens.add({
           targets: this.children.list[0],
           scale: 1,
           ease: 'Bounce',
           duration: 300,
+          onComplete: () => {
+            this.children.list[0].list[0].once('pointerup', () => {
+              this.tweens.add({
+                targets: this.children.list[0],
+                scale: 0.8,
+                ease: 'Quad',
+                duration: 70,
+                yoyo: true,
+                onComplete: () => {
+                  this.cameras.main.fadeOut(300);
+                },
+              });
+            });
+          },
         });
       },
+    });
+    this.cameras.main.once('camerafadeoutcomplete', (camera) => {
+      camera.fadeIn(100);
     });
   }
 }

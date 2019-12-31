@@ -20,41 +20,53 @@ export default class SelectScene extends Phaser.Scene {
    * @memberof SelectScene
    */
   create() {
-    this.add.container(512, 270, [
+    this.add.container(-305, 270, [
       this.add.image(0, 0, 'game', 'widewindow'),
       this.add.text(0, -210, 'Select Level', {
         fontSize: '50px',
         fontFamily: 'font',
       }).setOrigin(0.5).setStroke('#911315', 6),
       this.add.container(0, 0),
-      this.add.image(183, 235, 'game', 'next'),
-      this.add.image(-183, 235, 'game', 'home').setInteractive().once(
+      this.add.image(-5, 235, 'game', 'home').setInteractive().once(
           'pointerup', () => this.tweens.add({
-            targets: this.children.list[0].list[4],
+            targets: this.children.list[0].list[3],
             scale: 0.8,
             ease: 'Quad',
             duration: 70,
             yoyo: true,
-            onComplete: () => this.tweens.add({
-              targets: this.children.list[0],
-              scale: 0,
-              ease: 'Quad',
-              duration: 150,
-              onComplete: () => {
-                this.scene.stop();
-                this.scene.run('HomeScene');
-              },
-            }),
+            onComplete: () => {
+              this.tweens.add({
+                targets: this.children.list[0],
+                x: -305,
+                ease: 'Quad',
+                duration: 150,
+                onComplete: () => {
+                  this.scene.stop();
+                  this.scene.run('HomeScene');
+                },
+              });
+              this.tweens.add({
+                targets: this.children.list[1],
+                x: 1220,
+                ease: 'Quad',
+                duration: 150,
+              });
+            },
           })),
-    ]).scale = 0;
-    for (let i = 0; i < 15; i += 1) {
+    ]);
+    for (let i = 0; i < 3; i += 1) {
       this.children.list[0].list[2].add(this.add.container(0, 0, [
-        this.add.image(0, 0, 'game', 'button'),
+        this.add.image(0, 0, 'game', i !== 2 ? 'button' : 'buttonon'),
         this.add.text(-4, -10, (i + 1), {
           fontSize: '80px',
           fontFamily: 'font',
-        }).setOrigin(0.5).setStroke('#6dc300', 6),
+        }).setOrigin(0.5).setStroke(i !== 2 ? '#6dc300' : '#cc191c', 6),
       ]).setData('run', 'LevelScene').setData('level', i));
+    }
+    for (let i = 3; i < 15; i += 1) {
+      this.children.list[0].list[2].add(this.add.container(0, 0, [
+        this.add.image(0, 0, 'game', 'locked'),
+      ]));
     }
     // eslint-disable-next-line new-cap
     Phaser.Actions.GridAlign(this.children.list[0].list[2].list, {
@@ -67,9 +79,33 @@ export default class SelectScene extends Phaser.Scene {
     });
     this.tweens.add({
       targets: this.children.list[0],
-      scale: 1,
+      x: 320,
       ease: 'Bounce',
-      duration: 300,
+      duration: 600,
+    });
+    this.add.container(1220, 270, [
+      this.add.image(0, 0, 'game', 'levelwindow'),
+      this.add.image(0, 235, 'game', 'next').setInteractive().once(
+          'pointerup', () => this.tweens.add({
+            targets: this.children.list[1].list[1],
+            scale: 0.8,
+            ease: 'Quad',
+            duration: 70,
+            yoyo: true,
+            onComplete: () => this.cameras.main.fadeOut(300),
+          })),
+    ]).setData('level', 0);
+    this.tweens.add({
+      targets: this.children.list[1],
+      x: 825,
+      ease: 'Bounce',
+      duration: 600,
+    });
+    this.cameras.main.once('camerafadeoutcomplete', () => {
+      this.scene.stop('HomeScene');
+      this.scene.start('LevelScene', {
+        level: this.children.list[1].getData('level'),
+      });
     });
   }
 }

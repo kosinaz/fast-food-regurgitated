@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>phaser-json-array</string>
         <key>textureFileName</key>
-        <filename>game.png</filename>
+        <filename></filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>game.json</filename>
+                <filename>bg.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,7 +181,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">game/burger.png</key>
+            <key type="filename">bg/layer1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -190,20 +190,13 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>21,16,41,31</rect>
+                <rect>480,13,960,25</rect>
                 <key>scale9Paddings</key>
-                <rect>21,16,41,31</rect>
+                <rect>480,13,960,25</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">game/button.png</key>
-            <key type="filename">game/buttonon.png</key>
-            <key type="filename">game/home.png</key>
-            <key type="filename">game/info.png</key>
-            <key type="filename">game/locked.png</key>
-            <key type="filename">game/score.png</key>
-            <key type="filename">game/settings.png</key>
-            <key type="filename">game/trophy.png</key>
+            <key type="filename">bg/layer2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -212,13 +205,13 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>24,25,48,50</rect>
+                <rect>469,82,939,163</rect>
                 <key>scale9Paddings</key>
-                <rect>24,25,48,50</rect>
+                <rect>469,82,939,163</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">game/levelwindow.png</key>
+            <key type="filename">bg/layer3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -227,13 +220,13 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>153,194,306,388</rect>
+                <rect>480,118,960,236</rect>
                 <key>scale9Paddings</key>
-                <rect>153,194,306,388</rect>
+                <rect>480,118,960,236</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">game/lips1.png</key>
+            <key type="filename">bg/layer4.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -242,121 +235,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>31,27,63,55</rect>
+                <rect>480,162,960,325</rect>
                 <key>scale9Paddings</key>
-                <rect>31,27,63,55</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/lips2.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>33,37,66,73</rect>
-                <key>scale9Paddings</key>
-                <rect>33,37,66,73</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/lips3.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>31,47,61,93</rect>
-                <key>scale9Paddings</key>
-                <rect>31,47,61,93</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/lips4.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>29,54,57,107</rect>
-                <key>scale9Paddings</key>
-                <rect>29,54,57,107</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/lips5.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>28,59,55,117</rect>
-                <key>scale9Paddings</key>
-                <rect>28,59,55,117</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/next.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>350,230,700,461</rect>
-                <key>scale9Paddings</key>
-                <rect>350,230,700,461</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/star.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>27,27,55,53</rect>
-                <key>scale9Paddings</key>
-                <rect>27,27,55,53</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/widewindow.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>156,125,312,250</rect>
-                <key>scale9Paddings</key>
-                <rect>156,125,312,250</rect>
+                <rect>480,162,960,325</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>game</filename>
+            <filename>bg</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

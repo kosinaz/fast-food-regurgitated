@@ -9,6 +9,15 @@ import LevelScene from './levelScene.js';
 new Phaser.Game({
   type: Phaser.AUTO,
   backgroundColor: '#4adbff',
+  physics: {
+    default: 'arcade',
+    arcade: {
+      debug: true,
+      gravity: {
+        y: 1800,
+      },
+    },
+  },
   scale: {
     parent: 'game-container',
     mode: Phaser.Scale.FIT,

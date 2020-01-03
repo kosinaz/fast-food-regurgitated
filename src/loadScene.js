@@ -39,19 +39,21 @@ export default class LoadScene extends Phaser.Scene {
    * @memberof LoadScene
    */
   preload() {
-    this.add.container(512, 288, [
-      this.add.image(0, 0, 'border'),
-      this.add.image(-3, -10, 'bar'),
-    ]).list[1].frame.cutWidth = 0;
+    this.container = this.add.container(512, 288, [
+      this.add.image(0, 0, 'border').setName('border'),
+      this.add.image(-3, -10, 'bar').setName('bar'),
+    ]);
+    this.container.getByName('bar').frame.cutWidth = 0;
     this.load.on('progress', (value) => {
       this.tweens.add({
-        targets: this.children.list[0].list[1].frame,
-        cutWidth: this.children.list[0].list[1].width * value,
+        targets: this.container.getByName('bar').frame,
+        cutWidth: this.container.getByName('bar').width * value,
         ease: 'Quad',
         duration: 300,
       });
     });
     this.load.atlas('game', 'image/game.png', 'image/game.json');
+    this.load.atlas('bg', 'image/bg.png', 'image/bg.json');
     this.load.audio('title', 'audio/title.mp3');
     this.load.audio('level', 'audio/level.mp3');
     this.load.audio('boing1', 'audio/boing1.mp3');
@@ -83,24 +85,29 @@ export default class LoadScene extends Phaser.Scene {
    */
   create() {
     this.tweens.add({
-      targets: this.children.list[0],
+      targets: this.container.list,
       scale: 0,
       ease: 'Quint.easeIn',
       duration: 300,
       onComplete: () => {
-        this.children.list[0].destroy();
-        this.add.image(512, 288, 'game', 'next')
+        this.container.removeAll();
+        this.container.add(this.add.image(0, 0, 'game', 'next')
+            .setName('next')
+            .setScale(0)
             .setInteractive()
             .once('pointerup', () => this.tweens.add({
-              targets: this.children.list[0],
-              scale: 0.8,
+              targets: this.container.getByName('next'),
+              scale: {
+                from: 1,
+                to: 0.8,
+              },
               ease: 'Quad',
               duration: 70,
               yoyo: true,
               onComplete: () => this.cameras.main.fadeOut(300),
-            })).scale = 0;
+            })));
         this.tweens.add({
-          targets: this.children.list[0],
+          targets: this.container.getByName('next'),
           scale: 1,
           ease: 'Bounce',
           duration: 300,

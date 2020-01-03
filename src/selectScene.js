@@ -27,7 +27,7 @@ export default class SelectScene extends Phaser.Scene {
         fontFamily: 'font',
       }).setOrigin(0.5).setStroke('#911315', 6),
       this.add.container(0, 0),
-      this.add.image(-5, 235, 'game', 'home').setInteractive().once(
+      this.add.image(-115, 235, 'game', 'home').setInteractive().once(
           'pointerup', () => this.tweens.add({
             targets: this.children.list[0].list[3],
             scale: 0.8,
@@ -52,6 +52,15 @@ export default class SelectScene extends Phaser.Scene {
                 duration: 150,
               });
             },
+          })),
+      this.add.image(106, 235, 'game', 'next').setInteractive().once(
+          'pointerup', () => this.tweens.add({
+            targets: this.children.list[0].list[4],
+            scale: 0.8,
+            ease: 'Quad',
+            duration: 70,
+            yoyo: true,
+            onComplete: () => this.cameras.main.fadeOut(300),
           })),
     ]);
     for (let i = 0; i < 3; i += 1) {
@@ -85,15 +94,6 @@ export default class SelectScene extends Phaser.Scene {
     });
     this.add.container(1220, 270, [
       this.add.image(0, 0, 'game', 'levelwindow'),
-      this.add.image(-8, 235, 'game', 'next').setInteractive().once(
-          'pointerup', () => this.tweens.add({
-            targets: this.children.list[1].list[1],
-            scale: 0.8,
-            ease: 'Quad',
-            duration: 70,
-            yoyo: true,
-            onComplete: () => this.cameras.main.fadeOut(300),
-          })),
       this.add.text(0, -210, 'Level 1', {
         fontSize: '50px',
         fontFamily: 'font',
@@ -101,7 +101,7 @@ export default class SelectScene extends Phaser.Scene {
       this.add.sprite(-8, -100, 'game', 'star'),
       this.add.sprite(-110, -65, 'game', 'star').setScale(0.75),
       this.add.sprite(96, -65, 'game', 'star').setScale(0.75),
-      this.add.sprite(-8, 50, 'game', 'burger').setScale(0.5),
+      this.add.sprite(-8, 50, 'game', 'burger'),
       this.add.text(12, 60, 3, {
         fontSize: '40px',
         fontFamily: 'font',

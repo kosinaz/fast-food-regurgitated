@@ -56,11 +56,11 @@ export default class SelectScene extends Phaser.Scene {
     ]);
     for (let i = 0; i < 3; i += 1) {
       this.children.list[0].list[2].add(this.add.container(0, 0, [
-        this.add.image(0, 0, 'game', i !== 2 ? 'button' : 'buttonon'),
+        this.add.image(0, 0, 'game', i ? 'button' : 'buttonon'),
         this.add.text(-4, -10, (i + 1), {
           fontSize: '80px',
           fontFamily: 'font',
-        }).setOrigin(0.5).setStroke(i !== 2 ? '#6dc300' : '#cc191c', 6),
+        }).setOrigin(0.5).setStroke(i ? '#6dc300' : '#cc191c', 6),
       ]).setData('run', 'LevelScene').setData('level', i));
     }
     for (let i = 3; i < 15; i += 1) {
@@ -85,7 +85,7 @@ export default class SelectScene extends Phaser.Scene {
     });
     this.add.container(1220, 270, [
       this.add.image(0, 0, 'game', 'levelwindow'),
-      this.add.image(0, 235, 'game', 'next').setInteractive().once(
+      this.add.image(-8, 235, 'game', 'next').setInteractive().once(
           'pointerup', () => this.tweens.add({
             targets: this.children.list[1].list[1],
             scale: 0.8,
@@ -94,6 +94,18 @@ export default class SelectScene extends Phaser.Scene {
             yoyo: true,
             onComplete: () => this.cameras.main.fadeOut(300),
           })),
+      this.add.text(0, -210, 'Level 1', {
+        fontSize: '50px',
+        fontFamily: 'font',
+      }).setOrigin(0.5).setStroke('#911315', 6),
+      this.add.sprite(-8, -100, 'game', 'star'),
+      this.add.sprite(-110, -65, 'game', 'star').setScale(0.75),
+      this.add.sprite(96, -65, 'game', 'star').setScale(0.75),
+      this.add.sprite(-8, 50, 'game', 'burger').setScale(0.5),
+      this.add.text(12, 60, 3, {
+        fontSize: '40px',
+        fontFamily: 'font',
+      }).setOrigin(0.5).setStroke('#efb469', 4),
     ]).setData('level', 0);
     this.tweens.add({
       targets: this.children.list[1],

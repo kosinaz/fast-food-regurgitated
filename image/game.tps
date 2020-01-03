@@ -182,8 +182,10 @@
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">game/button.png</key>
+            <key type="filename">game/buttonon.png</key>
             <key type="filename">game/home.png</key>
             <key type="filename">game/info.png</key>
+            <key type="filename">game/locked.png</key>
             <key type="filename">game/score.png</key>
             <key type="filename">game/settings.png</key>
             <key type="filename">game/trophy.png</key>
@@ -213,6 +215,81 @@
                 <rect>153,194,306,388</rect>
                 <key>scale9Paddings</key>
                 <rect>153,194,306,388</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/lips1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>31,27,63,55</rect>
+                <key>scale9Paddings</key>
+                <rect>31,27,63,55</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/lips2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>33,37,66,73</rect>
+                <key>scale9Paddings</key>
+                <rect>33,37,66,73</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/lips3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>31,47,61,93</rect>
+                <key>scale9Paddings</key>
+                <rect>31,47,61,93</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/lips4.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>29,54,57,107</rect>
+                <key>scale9Paddings</key>
+                <rect>29,54,57,107</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/lips5.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>28,59,55,117</rect>
+                <key>scale9Paddings</key>
+                <rect>28,59,55,117</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

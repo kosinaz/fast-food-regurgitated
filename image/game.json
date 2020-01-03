@@ -1,8 +1,16 @@
 {"frames": [
 
 {
+	"filename": "burger",
+	"frame": {"x":178,"y":100,"w":120,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":90},
+	"sourceSize": {"w":120,"h":90}
+},
+{
 	"filename": "button",
-	"frame": {"x":480,"y":0,"w":96,"h":100},
+	"frame": {"x":556,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -10,7 +18,7 @@
 },
 {
 	"filename": "buttonon",
-	"frame": {"x":672,"y":0,"w":96,"h":100},
+	"frame": {"x":652,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -18,7 +26,7 @@
 },
 {
 	"filename": "home",
-	"frame": {"x":576,"y":0,"w":96,"h":100},
+	"frame": {"x":748,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -26,7 +34,7 @@
 },
 {
 	"filename": "info",
-	"frame": {"x":768,"y":0,"w":96,"h":100},
+	"frame": {"x":0,"y":100,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -34,15 +42,55 @@
 },
 {
 	"filename": "levelwindow",
-	"frame": {"x":0,"y":100,"w":394,"h":500},
+	"frame": {"x":556,"y":100,"w":394,"h":500},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":394,"h":500},
 	"sourceSize": {"w":394,"h":500}
 },
 {
+	"filename": "lips1",
+	"frame": {"x":0,"y":0,"w":84,"h":73},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":73},
+	"sourceSize": {"w":84,"h":73}
+},
+{
+	"filename": "lips2",
+	"frame": {"x":84,"y":0,"w":88,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":98},
+	"sourceSize": {"w":88,"h":98}
+},
+{
+	"filename": "lips3",
+	"frame": {"x":96,"y":100,"w":82,"h":124},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":82,"h":124},
+	"sourceSize": {"w":82,"h":124}
+},
+{
+	"filename": "lips4",
+	"frame": {"x":298,"y":100,"w":76,"h":143},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":143},
+	"sourceSize": {"w":76,"h":143}
+},
+{
+	"filename": "lips5",
+	"frame": {"x":374,"y":100,"w":73,"h":156},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":73,"h":156},
+	"sourceSize": {"w":73,"h":156}
+},
+{
 	"filename": "locked",
-	"frame": {"x":384,"y":0,"w":96,"h":100},
+	"frame": {"x":364,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -50,7 +98,7 @@
 },
 {
 	"filename": "next",
-	"frame": {"x":0,"y":0,"w":96,"h":100},
+	"frame": {"x":460,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -58,7 +106,7 @@
 },
 {
 	"filename": "score",
-	"frame": {"x":96,"y":0,"w":96,"h":100},
+	"frame": {"x":172,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -66,15 +114,23 @@
 },
 {
 	"filename": "settings",
-	"frame": {"x":288,"y":0,"w":96,"h":100},
+	"frame": {"x":268,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
 	"sourceSize": {"w":96,"h":100}
 },
 {
+	"filename": "star",
+	"frame": {"x":447,"y":100,"w":109,"h":106},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":109,"h":106},
+	"sourceSize": {"w":109,"h":106}
+},
+{
 	"filename": "trophy",
-	"frame": {"x":192,"y":0,"w":96,"h":100},
+	"frame": {"x":844,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -82,7 +138,7 @@
 },
 {
 	"filename": "widewindow",
-	"frame": {"x":394,"y":100,"w":624,"h":500},
+	"frame": {"x":0,"y":600,"w":624,"h":500},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":624,"h":500},
@@ -93,8 +149,8 @@
 	"version": "1.0",
 	"image": "game.png",
 	"format": "RGBA8888",
-	"size": {"w":1018,"h":600},
+	"size": {"w":950,"h":1100},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:58cc4f038b4658cbaf7db8934f877a4e:1d5911329b9c00d3051105877d4dae8c:fc2835210f98bae8e8c1b7f0a84c9321$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ea8d88a9d2e4d58cc7106258f22c3720:e2ea30d60132140c4ab4bed6cf924e59:fc2835210f98bae8e8c1b7f0a84c9321$"
 }
 }

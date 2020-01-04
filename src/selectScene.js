@@ -30,13 +30,13 @@ export default class SelectScene extends Phaser.Scene {
     selectTitle.setOrigin(0.5);
     selectTitle.setStroke('#911315', 6);
     const levels = this.add.container(0, 0);
-    const home = new Button(this, -115, 235, 'game', 'home', () => {
+    const home = new Button(this, -115, 235, 'game', 'home', () =>
       this.scene.transition({
         target: 'HomeScene',
         duration: 300,
-      });
-    });
-    const next = new Button(this, 106, 235, 'game', 'next', () => 
+      }),
+    );
+    const next = new Button(this, 106, 235, 'game', 'next', () =>
       this.cameras.main.fadeOut(300),
     );
     this.events.on('transitionout', () => {

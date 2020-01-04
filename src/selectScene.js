@@ -1,3 +1,5 @@
+import Button from './button.js';
+
 /**
  * Represent the level selection screen of the game.
  *
@@ -20,65 +22,57 @@ export default class SelectScene extends Phaser.Scene {
    * @memberof SelectScene
    */
   create() {
-    this.add.container(-305, 270, [
-      this.add.image(0, 0, 'game', 'widewindow'),
-      this.add.text(0, -210, 'Select Level', {
-        fontSize: '50px',
-        fontFamily: 'font',
-      }).setOrigin(0.5).setStroke('#911315', 6),
-      this.add.container(0, 0),
-      this.add.image(-115, 235, 'game', 'home').setInteractive().once(
-          'pointerup', () => this.tweens.add({
-            targets: this.children.list[0].list[3],
-            scale: 0.8,
-            ease: 'Quad',
-            duration: 70,
-            yoyo: true,
-            onComplete: () => {
-              this.tweens.add({
-                targets: this.children.list[0],
-                x: -305,
-                ease: 'Quad',
-                duration: 150,
-                onComplete: () => {
-                  this.scene.stop();
-                  this.scene.run('HomeScene');
-                },
-              });
-              this.tweens.add({
-                targets: this.children.list[1],
-                x: 1220,
-                ease: 'Quad',
-                duration: 150,
-              });
-            },
-          })),
-      this.add.image(106, 235, 'game', 'next').setInteractive().once(
-          'pointerup', () => this.tweens.add({
-            targets: this.children.list[0].list[4],
-            scale: 0.8,
-            ease: 'Quad',
-            duration: 70,
-            yoyo: true,
-            onComplete: () => this.cameras.main.fadeOut(300),
-          })),
-    ]);
+    const selectBg = this.add.image(0, 0, 'game', 'widewindow');
+    const selectTitle = this.add.text(0, -210, 'Select Level', {
+      fontSize: '50px',
+      fontFamily: 'font',
+    });
+    selectTitle.setOrigin(0.5);
+    selectTitle.setStroke('#911315', 6);
+    const levels = this.add.container(0, 0);
+    const home = new Button(this, -115, 235, 'game', 'home', () => {
+      this.scene.transition({
+        target: 'HomeScene',
+        duration: 300,
+      });
+    });
+    const next = new Button(this, 106, 235, 'game', 'next', () => 
+      this.cameras.main.fadeOut(300),
+    );
+    this.events.on('transitionout', () => {
+      this.tweens.add({
+        targets: selectModal,
+        x: -305,
+        ease: 'Quad',
+        duration: 300,
+      });
+      this.tweens.add({
+        targets: levelModal,
+        x: 1220,
+        ease: 'Quad',
+        duration: 300,
+      });
+    });
+    const selectContent = [selectBg, selectTitle, levels, home, next];
+    const selectModal = this.add.container(-305, 270, selectContent);
     for (let i = 0; i < 3; i += 1) {
-      this.children.list[0].list[2].add(this.add.container(0, 0, [
-        this.add.image(0, 0, 'game', i ? 'button' : 'buttonon'),
-        this.add.text(-4, -10, (i + 1), {
-          fontSize: '80px',
-          fontFamily: 'font',
-        }).setOrigin(0.5).setStroke(i ? '#6dc300' : '#cc191c', 6),
-      ]).setData('run', 'LevelScene').setData('level', i));
+      const bg = this.add.image(0, 0, 'game', i ? 'button' : 'buttonon');
+      const text = this.add.text(-4, -10, (i + 1), {
+        fontSize: '80px',
+        fontFamily: 'font',
+      });
+      text.setOrigin(0.5);
+      text.setStroke(i ? '#6dc300' : '#cc191c', 6);
+      const button = this.add.container(0, 0, [bg, text]);
+      levels.add(button);
     }
     for (let i = 3; i < 15; i += 1) {
-      this.children.list[0].list[2].add(this.add.container(0, 0, [
-        this.add.image(0, 0, 'game', 'locked'),
-      ]));
+      const bg = this.add.image(0, 0, 'game', 'locked');
+      const button = this.add.container(0, 0, [bg]);
+      levels.add(button);
     }
     // eslint-disable-next-line new-cap
-    Phaser.Actions.GridAlign(this.children.list[0].list[2].list, {
+    Phaser.Actions.GridAlign(levels.list, {
       width: 5,
       height: 3,
       cellWidth: 110,
@@ -87,28 +81,35 @@ export default class SelectScene extends Phaser.Scene {
       y: -30,
     });
     this.tweens.add({
-      targets: this.children.list[0],
+      targets: selectModal,
       x: 320,
       ease: 'Bounce',
       duration: 600,
     });
-    this.add.container(1220, 270, [
-      this.add.image(0, 0, 'game', 'levelwindow'),
-      this.add.text(0, -210, 'Level 1', {
-        fontSize: '50px',
-        fontFamily: 'font',
-      }).setOrigin(0.5).setStroke('#911315', 6),
-      this.add.sprite(-8, -100, 'game', 'star'),
-      this.add.sprite(-110, -65, 'game', 'star').setScale(0.75),
-      this.add.sprite(96, -65, 'game', 'star').setScale(0.75),
-      this.add.sprite(-8, 50, 'game', 'burger'),
-      this.add.text(12, 60, 3, {
-        fontSize: '40px',
-        fontFamily: 'font',
-      }).setOrigin(0.5).setStroke('#efb469', 4),
-    ]).setData('level', 0);
+    const levelBg = this.add.image(0, 0, 'game', 'levelwindow');
+    const levelTitle = this.add.text(0, -210, 'Level 1', {
+      fontSize: '50px',
+      fontFamily: 'font',
+    });
+    levelTitle.setOrigin(0.5);
+    levelTitle.setStroke('#911315', 6);
+    const star1 = this.add.image(-8, -100, 'game', 'star');
+    const star2 = this.add.image(-110, -65, 'game', 'star');
+    star2.setScale(0.75);
+    const star3 = this.add.image(96, -65, 'game', 'star');
+    star3.setScale(0.75);
+    const burgerImage = this.add.image(0, 0, 'game', 'burger');
+    const burgerNumber = this.add.text(20, 10, 3, {
+      fontSize: '40px',
+      fontFamily: 'font',
+    });
+    burgerNumber.setOrigin(0.5);
+    burgerNumber.setStroke('#efb469', 4);
+    const burger = this.add.container(-8, 50, [burgerImage, burgerNumber]);
+    const levelContent = [levelBg, levelTitle, star1, star2, star3, burger];
+    const levelModal = this.add.container(1220, 270, levelContent);
     this.tweens.add({
-      targets: this.children.list[1],
+      targets: levelModal,
       x: 825,
       ease: 'Bounce',
       duration: 600,
@@ -116,7 +117,7 @@ export default class SelectScene extends Phaser.Scene {
     this.cameras.main.once('camerafadeoutcomplete', () => {
       this.scene.stop('HomeScene');
       this.scene.start('LevelScene', {
-        level: this.children.list[1].getData('level'),
+        level: 1,
       });
     });
   }

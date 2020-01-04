@@ -1,3 +1,5 @@
+import Button from './button.js';
+
 /**
  * Represent the home screen of the game.
  *
@@ -21,42 +23,88 @@ export default class HomeScene extends Phaser.Scene {
    */
   create() {
     this.cameras.main.fadeIn(100);
-    this.add.text(512, 125, 'Fast Food', {
+    const title = this.add.text(0, 0, 'Fast Food', {
       fontSize: '200px',
       fontFamily: 'font',
       color: '#b6e84b',
-    })
-        .setOrigin(0.5)
-        .setStroke('#fff', 36)
-        .setShadow(4, 8, '#444', 2, true, true);
-    this.add.text(512, 300, 'Regurgitated', {
+    });
+    title.setOrigin(0.5);
+    title.setStroke('#fff', 36);
+    title.setShadow(4, 8, '#444', 2, true, true);
+    const subtitle = this.add.text(0, 175, 'Regurgitated', {
       fontSize: '160px',
       fontFamily: 'font',
       color: '#7d4375',
-    })
-        .setOrigin(0.5)
-        .setStroke('#fff', 25)
-        .setShadow(3, 6, '#444', 2, true, true);
-    this.add.container(512, 485, [
-      this.add.image(-250, 0, 'game', 'next').setData('run', 'SelectScene'),
-      this.add.image(-125, 0, 'game', 'score').setData('run', 'ScoreScene'),
-      this.add.image(0, 0, 'game', 'trophy').setData('run', 'TrophyScene'),
-      this.add.image(125, 0, 'game', 'info').setData('run', 'InfoScene'),
-      this.add.image(250, 0, 'game', 'settings')
-          .setData('run', 'SettingsScene'),
-    ]).each((image) => {
-      image.setInteractive();
-      image.on('pointerup', () => this.tweens.add({
-        targets: image,
-        scale: 0.8,
+    });
+    subtitle.setOrigin(0.5);
+    subtitle.setStroke('#fff', 25);
+    subtitle.setShadow(3, 6, '#444', 2, true, true);
+    const titles = this.add.container(512, 125, [title, subtitle]);
+    const next = new Button(this, -250, 0, 'game', 'next', () => {
+      this.scene.transition({
+        target: 'SelectScene',
+        duration: 200,
+      });
+    });
+    const score = new Button(this, -125, 0, 'game', 'score', () => {
+      this.scene.transition({
+        target: 'ScoreScene',
+        duration: 200,
+      });
+    });
+    const trophy = new Button(this, 0, 0, 'game', 'trophy', () => {
+      this.scene.transition({
+        target: 'TrophyScene',
+        duration: 200,
+      });
+    });
+    const info = new Button(this, 125, 0, 'game', 'info', () => {
+      this.scene.transition({
+        target: 'InfoScene',
+        duration: 200,
+      });
+    });
+    const settings = new Button(this, 250, 0, 'game', 'settings', () => {
+      this.scene.transition({
+        target: 'SettingsScene',
+        duration: 200,
+      });
+    });
+    const buttons = [next, score, trophy, info, settings];
+    const container = this.add.container(512, 485, buttons);
+    this.events.on('transitionout', () => {
+      this.tweens.add({
+        targets: container,
+        y: 625,
         ease: 'Quad',
-        duration: 70,
-        yoyo: true,
-        onComplete: () => {
-          this.scene.pause();
-          this.scene.run(image.getData('run'));
+        duration: 200,
+      });
+      this.tweens.add({
+        targets: titles,
+        scale: 0,
+        ease: 'Quad',
+        duration: 200,
+      });
+    });
+    this.events.on('transitionstart', () => {
+      this.tweens.add({
+        targets: container,
+        y: {
+          from: 625,
+          to: 485,
         },
-      }));
+        ease: 'Bounce',
+        duration: 600,
+      });
+      this.tweens.add({
+        targets: titles,
+        scale: {
+          from: 0,
+          to: 1,
+        },
+        ease: 'Bounce',
+        duration: 600,
+      });
     });
   }
 }

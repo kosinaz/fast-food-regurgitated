@@ -29,7 +29,6 @@ export default class LevelScene extends Phaser.Scene {
     this.add.tileSprite(512, 450, 2048, 200, 'bg', 'layer3');
     this.add.tileSprite(512, 475, 2048, 150, 'bg', 'layer2');
     this.add.tileSprite(512, 565, 2048, 30, 'bg', 'layer1');
-    console.log(data);
     this.anims.create({
       key: 'lips',
       frames: this.anims.generateFrameNames('game', {

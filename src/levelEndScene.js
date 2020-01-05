@@ -26,7 +26,7 @@ export default class LevelEndScene extends Phaser.Scene {
     const levelBg = this.add.image(0, 0, 'game', 'levelwindow');
     const title = data.n > 3 ? 'Level complete' : 'Level failed';
     const levelTitle = this.add.text(0, -210, title, {
-      fontSize: '50px',
+      fontSize: '40px',
       fontFamily: 'font',
     });
     levelTitle.setOrigin(0.5);

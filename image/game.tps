@@ -70,7 +70,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>0</uint>
+        <uint>2</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -181,6 +181,31 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">game/back.png</key>
+            <key type="filename">game/button.png</key>
+            <key type="filename">game/buttonon.png</key>
+            <key type="filename">game/home.png</key>
+            <key type="filename">game/info.png</key>
+            <key type="filename">game/locked.png</key>
+            <key type="filename">game/score.png</key>
+            <key type="filename">game/select.png</key>
+            <key type="filename">game/settings.png</key>
+            <key type="filename">game/stop.png</key>
+            <key type="filename">game/trophy.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>24,25,48,50</rect>
+                <key>scale9Paddings</key>
+                <rect>24,25,48,50</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">game/burger.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -196,14 +221,9 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">game/button.png</key>
-            <key type="filename">game/buttonon.png</key>
-            <key type="filename">game/home.png</key>
-            <key type="filename">game/info.png</key>
-            <key type="filename">game/locked.png</key>
-            <key type="filename">game/score.png</key>
-            <key type="filename">game/settings.png</key>
-            <key type="filename">game/trophy.png</key>
+            <key type="filename">game/down.png</key>
+            <key type="filename">game/left.png</key>
+            <key type="filename">game/right.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -212,9 +232,24 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>24,25,48,50</rect>
+                <rect>9,9,17,17</rect>
                 <key>scale9Paddings</key>
-                <rect>24,25,48,50</rect>
+                <rect>9,9,17,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/goalpanel.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>34,101,69,203</rect>
+                <key>scale9Paddings</key>
+                <rect>34,101,69,203</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -335,6 +370,21 @@
                 <rect>27,27,55,53</rect>
                 <key>scale9Paddings</key>
                 <rect>27,27,55,53</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/up.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,10,10</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,10,10</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

@@ -2,7 +2,7 @@
 
 {
 	"filename": "back",
-	"frame": {"x":0,"y":100,"w":96,"h":100},
+	"frame": {"x":98,"y":102,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -10,7 +10,7 @@
 },
 {
 	"filename": "burger",
-	"frame": {"x":140,"y":0,"w":71,"h":53},
+	"frame": {"x":148,"y":0,"w":71,"h":53},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":71,"h":53},
@@ -18,7 +18,7 @@
 },
 {
 	"filename": "button",
-	"frame": {"x":480,"y":100,"w":96,"h":100},
+	"frame": {"x":588,"y":102,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -26,7 +26,7 @@
 },
 {
 	"filename": "buttonon",
-	"frame": {"x":192,"y":100,"w":96,"h":100},
+	"frame": {"x":294,"y":102,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -34,7 +34,7 @@
 },
 {
 	"filename": "down",
-	"frame": {"x":70,"y":0,"w":35,"h":35},
+	"frame": {"x":74,"y":0,"w":35,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
@@ -42,7 +42,7 @@
 },
 {
 	"filename": "goalpanel",
-	"frame": {"x":685,"y":100,"w":95,"h":300},
+	"frame": {"x":797,"y":102,"w":95,"h":300},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":95,"h":300},
@@ -50,7 +50,7 @@
 },
 {
 	"filename": "home",
-	"frame": {"x":96,"y":100,"w":96,"h":100},
+	"frame": {"x":196,"y":102,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -58,7 +58,7 @@
 },
 {
 	"filename": "info",
-	"frame": {"x":288,"y":100,"w":96,"h":100},
+	"frame": {"x":392,"y":102,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -66,7 +66,7 @@
 },
 {
 	"filename": "left",
-	"frame": {"x":105,"y":0,"w":35,"h":35},
+	"frame": {"x":111,"y":0,"w":35,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
@@ -74,7 +74,7 @@
 },
 {
 	"filename": "levelwindow",
-	"frame": {"x":0,"y":400,"w":394,"h":500},
+	"frame": {"x":0,"y":404,"w":394,"h":500},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":394,"h":500},
@@ -82,7 +82,7 @@
 },
 {
 	"filename": "lips1",
-	"frame": {"x":301,"y":0,"w":45,"h":80},
+	"frame": {"x":315,"y":0,"w":45,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":80},
@@ -90,7 +90,7 @@
 },
 {
 	"filename": "lips2",
-	"frame": {"x":211,"y":0,"w":45,"h":80},
+	"frame": {"x":221,"y":0,"w":45,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":80},
@@ -98,7 +98,7 @@
 },
 {
 	"filename": "lips3",
-	"frame": {"x":256,"y":0,"w":45,"h":80},
+	"frame": {"x":268,"y":0,"w":45,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":80},
@@ -106,7 +106,7 @@
 },
 {
 	"filename": "lips4",
-	"frame": {"x":391,"y":0,"w":45,"h":80},
+	"frame": {"x":409,"y":0,"w":45,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":80},
@@ -114,7 +114,7 @@
 },
 {
 	"filename": "lips5",
-	"frame": {"x":346,"y":0,"w":45,"h":80},
+	"frame": {"x":362,"y":0,"w":45,"h":80},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":80},
@@ -122,7 +122,7 @@
 },
 {
 	"filename": "locked",
-	"frame": {"x":384,"y":100,"w":96,"h":100},
+	"frame": {"x":490,"y":102,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -130,7 +130,7 @@
 },
 {
 	"filename": "next",
-	"frame": {"x":820,"y":0,"w":96,"h":100},
+	"frame": {"x":848,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -146,7 +146,7 @@
 },
 {
 	"filename": "score",
-	"frame": {"x":532,"y":0,"w":96,"h":100},
+	"frame": {"x":554,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -154,7 +154,7 @@
 },
 {
 	"filename": "select",
-	"frame": {"x":724,"y":0,"w":96,"h":100},
+	"frame": {"x":750,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -162,7 +162,7 @@
 },
 {
 	"filename": "settings",
-	"frame": {"x":916,"y":0,"w":96,"h":100},
+	"frame": {"x":0,"y":102,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -170,7 +170,7 @@
 },
 {
 	"filename": "star",
-	"frame": {"x":576,"y":100,"w":109,"h":106},
+	"frame": {"x":686,"y":102,"w":109,"h":106},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":109,"h":106},
@@ -178,7 +178,7 @@
 },
 {
 	"filename": "stop",
-	"frame": {"x":628,"y":0,"w":96,"h":100},
+	"frame": {"x":652,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -186,7 +186,7 @@
 },
 {
 	"filename": "trophy",
-	"frame": {"x":436,"y":0,"w":96,"h":100},
+	"frame": {"x":456,"y":0,"w":96,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":100},
@@ -194,7 +194,7 @@
 },
 {
 	"filename": "up",
-	"frame": {"x":35,"y":0,"w":35,"h":35},
+	"frame": {"x":37,"y":0,"w":35,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
@@ -202,7 +202,7 @@
 },
 {
 	"filename": "widewindow",
-	"frame": {"x":394,"y":400,"w":624,"h":500},
+	"frame": {"x":396,"y":404,"w":624,"h":500},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":624,"h":500},
@@ -213,8 +213,8 @@
 	"version": "1.0",
 	"image": "game.png",
 	"format": "RGBA8888",
-	"size": {"w":1018,"h":900},
+	"size": {"w":1020,"h":904},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a86c20e087f71b92430cb57bedaf4e24:f88489e49c46b0b6adb773c6745b6b25:fc2835210f98bae8e8c1b7f0a84c9321$"
+	"smartupdate": "$TexturePacker:SmartUpdate:191194931d2d9e978029775368cbd188:f88489e49c46b0b6adb773c6745b6b25:fc2835210f98bae8e8c1b7f0a84c9321$"
 }
 }

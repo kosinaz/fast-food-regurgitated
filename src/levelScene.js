@@ -41,7 +41,8 @@ export default class LevelScene extends Phaser.Scene {
     lips.play('lips');
     lips.setSize(40, 60);
     lips.setCollideWorldBounds(true);
-    lips.body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, 25, 300, 525));
+    lips.body.onWorldBounds = true;
+    lips.body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, -430, 300, 1000));
     const foods = this.physics.add.group({
       key: 'game',
       frame: 'burger',
@@ -104,9 +105,15 @@ export default class LevelScene extends Phaser.Scene {
       });
     });
     this.input.on('pointerup', () => {
+      if (lips.y < -200) {
+        return;
+      }
       lips.setVelocityY(-600);
     });
     this.input.keyboard.on('keyup', () => {
+      if (lips.y < -200) {
+        return;
+      }
       lips.setVelocityY(-600);
     });
     const bg = this.add.image(0, 0, 'game', 'goalpanel').setOrigin(0);
@@ -120,9 +127,17 @@ export default class LevelScene extends Phaser.Scene {
     burgerText.setStroke('#efb469', 3);
     const burger = this.add.container(37, 40, [burgerImage, burgerText]);
     this.add.container(0, 0, [bg, burger]);
-    this.physics.world.on('worldbounds', (food) => {
-      food.gameObject.disableBody(true, true);
-      foods.killAndHide(food.gameObject);
+    this.physics.world.on('worldbounds', (body) => {
+      if (body.gameObject === lips) {
+        lips.setFrame('lips1');
+        this.scene.pause();
+        this.scene.run('LevelEndScene', {
+          n: 0,
+        });
+        return;
+      }
+      body.gameObject.disableBody(true, true);
+      foods.killAndHide(body.gameObject);
       this.data.set('foods', foods.countActive());
     });
     this.scene.run('LevelStartScene');

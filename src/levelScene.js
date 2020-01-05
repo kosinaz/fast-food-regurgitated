@@ -21,7 +21,6 @@ export default class LevelScene extends Phaser.Scene {
    * @memberof LevelScene
    */
   create(data) {
-    this.cameras.main.fadeIn(100);
     this.add.tileSprite(1024, 200, 2048, 400, 'bg', 'layer7');
     this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer6');
     this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer5');
@@ -38,7 +37,7 @@ export default class LevelScene extends Phaser.Scene {
       yoyo: true,
       repeat: -1,
     });
-    const lips = this.physics.add.sprite(300, 250, 'game');
+    const lips = this.physics.add.sprite(200, 200, 'game');
     lips.play('lips');
     lips.setSize(40, 60);
     lips.setCollideWorldBounds(true);
@@ -47,7 +46,7 @@ export default class LevelScene extends Phaser.Scene {
       key: 'game',
       frame: 'burger',
       collideWorldBounds: true,
-      customBoundsRectangle: new Phaser.Geom.Rectangle(0, 0, 10000, 576),
+      customBoundsRectangle: new Phaser.Geom.Rectangle(-100, 0, 10000, 576),
       repeat: 6,
       setXY: {
         x: 1200,
@@ -65,10 +64,11 @@ export default class LevelScene extends Phaser.Scene {
       food.y += y * 50;
     });
     let burgerNumber = 4;
+    this.data.set('foods', 7);
     this.physics.add.overlap(lips, foods, (lips, food) => {
       food.disableBody(true, true);
       foods.killAndHide(food);
-      console.log(foods.countActive());
+      this.data.set('foods', foods.countActive());
       burgerNumber -= 1;
       const miniburger = this.add.image(food.x, food.y, 'game', 'burger');
       this.tweens.timeline({
@@ -106,6 +106,9 @@ export default class LevelScene extends Phaser.Scene {
     this.input.on('pointerup', () => {
       lips.setVelocityY(-600);
     });
+    this.input.keyboard.on('keyup', () => {
+      lips.setVelocityY(-600);
+    });
     const bg = this.add.image(0, 0, 'game', 'goalpanel').setOrigin(0);
     const burgerImage = this.add.image(0, 0, 'game', 'burger');
     burgerImage.setScale(0.75);
@@ -115,12 +118,30 @@ export default class LevelScene extends Phaser.Scene {
     });
     burgerText.setOrigin(0.5);
     burgerText.setStroke('#efb469', 3);
-    const burger = this.add.container(55, 70, [burgerImage, burgerText]);
-    const goalpanel = this.add.container(0, 0, [bg, burger]);
+    const burger = this.add.container(37, 40, [burgerImage, burgerText]);
+    this.add.container(0, 0, [bg, burger]);
     this.physics.world.on('worldbounds', (food) => {
       food.gameObject.disableBody(true, true);
       foods.killAndHide(food.gameObject);
-      console.log(foods.countActive());
+      this.data.set('foods', foods.countActive());
+    });
+    this.scene.run('LevelStartScene');
+    this.scene.pause();
+    lips.setVelocityY(-600);
+    this.data.events.on('changedata-foods', (parent, value) => {
+      if (value > 0) {
+        return;
+      }
+      this.data.events.off('changedata-foods');
+      this.time.addEvent({
+        delay: 800,
+        callback: () => {
+          this.scene.pause();
+          this.scene.run('LevelEndScene', {
+            n: 4 - burgerNumber,
+          });
+        },
+      });
     });
   }
 

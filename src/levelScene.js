@@ -38,24 +38,34 @@ export default class LevelScene extends Phaser.Scene {
       yoyo: true,
       repeat: -1,
     });
-    this.physics.add.sprite(100, 250, 'game')
-        .play('lips')
-        .setCircle(25)
-        .setCollideWorldBounds(true)
-        .body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, 25, 300, 525));
-    this.physics.add.sprite(1200, 250, 'game', 'burger')
-        .setCircle(10)
-        .setVelocityX(-200)
-        .body.allowGravity = false;
-    this.physics.add.overlap(
-        this.children.list[8],
-        this.children.list[7],
-        (food) => {
-          food.disableBody(true, true);
-        },
-    );
+    const lips = this.physics.add.sprite(150, 250, 'game');
+    lips.play('lips');
+    lips.setSize(40, 60);
+    lips.setCollideWorldBounds(true);
+    lips.body.setBoundsRectangle(new Phaser.Geom.Rectangle(0, 25, 300, 525));
+    const food = this.physics.add.group({
+      key: 'game',
+      frame: 'burger',
+      repeat: 5,
+      setXY: {
+        x: 1200,
+        y: 250,
+        stepX: 400,
+      },
+      allowGravity: false,
+      velocityX: -400,
+    });
+    let y = 0;
+    food.getChildren().forEach((food) => {
+      // eslint-disable-next-line new-cap
+      y = Phaser.Math.Clamp(y + Phaser.Math.Between(-1, 1), -1, 1);
+      food.y += y * 100;
+    });
+    this.physics.add.overlap(lips, food, (lips, food) => {
+      food.disableBody(true, true);
+    });
     this.input.on('pointerup', () => {
-      this.children.list[7].setVelocityY(-600);
+      lips.setVelocityY(-600);
     });
   }
 

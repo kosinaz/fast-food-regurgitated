@@ -99,7 +99,7 @@ export default class SelectScene extends Phaser.Scene {
     const star3 = this.add.image(96, -65, 'game', 'star');
     star3.setScale(0.75);
     const burgerImage = this.add.image(0, 0, 'game', 'burger');
-    const burgerNumber = this.add.text(20, 10, 3, {
+    const burgerNumber = this.add.text(20, 10, 4, {
       fontSize: '40px',
       fontFamily: 'font',
     });

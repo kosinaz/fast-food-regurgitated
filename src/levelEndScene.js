@@ -63,14 +63,11 @@ export default class LevelEndScene extends Phaser.Scene {
       to = 'SelectScene';
     });
     select.disableInteractive();
-    let next;
-    if (data.n > 3) {
-      next = new Button(this, 104, 0, 'game', 'next', () =>
-        this.cameras.main.fadeOut(300),
-      );
-      next.disableInteractive();
-    } else {
-      next = this.add.image(104, 0, 'game', 'stop');
+    const next = new Button(this, 104, 0, 'game', 'next', () =>
+      this.cameras.main.fadeOut(300),
+    );
+    if (data.n < 4) {
+      next.lock();
     }
     const buttons = this.add.container(-8, 230, [back, select, next]);
     const levelContent = [levelBg, levelTitle, stars, burger, buttons];

@@ -28,8 +28,9 @@ export default class Button extends Phaser.GameObjects.Container {
       }),
     ]);
     scene.children.add(this);
-    this.list[0].setInteractive();
-    this.list[0].on('pointerup', () => scene.tweens.add({
+    this.setSize(this.list[0].width, this.list[0].height);
+    this.setInteractive();
+    this.on('pointerup', () => scene.tweens.add({
       targets: this,
       scale: 0.8,
       ease: 'Quad',

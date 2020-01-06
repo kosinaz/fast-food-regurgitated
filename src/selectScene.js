@@ -22,6 +22,7 @@ export default class SelectScene extends Phaser.Scene {
    * @memberof SelectScene
    */
   create() {
+    this.data.set('selected', 2);
     const selectBg = this.add.image(0, 0, 'game', 'widewindow');
     const selectTitle = this.add.text(0, -210, 'Select Level', {
       fontSize: '50px',
@@ -30,12 +31,13 @@ export default class SelectScene extends Phaser.Scene {
     selectTitle.setOrigin(0.5);
     selectTitle.setStroke('#911315', 6);
     const levels = this.add.container(0, 0);
-    const home = new Button(this, -115, 235, 'game', 'home', () =>
+    const home = new Button(this, -115, 235, 'game', 'home', () => {
       this.scene.transition({
         target: 'HomeScene',
         duration: 300,
-      }),
-    );
+      });
+      this.data.events.off('changedata-selected');
+    });
     const next = new Button(this, 106, 235, 'game', 'next', () =>
       this.cameras.main.fadeOut(300),
     );
@@ -61,7 +63,8 @@ export default class SelectScene extends Phaser.Scene {
           button.deselect();
         });
         selected.select();
-      }, i + 1, i);
+        this.data.set('selected', selected.text - 1);
+      }, i + 1, this.data.get('selected') !== i);
       levels.add(button);
     }
     for (let i = 3; i < 15; i += 1) {
@@ -83,10 +86,11 @@ export default class SelectScene extends Phaser.Scene {
       duration: 600,
     });
     const levelBg = this.add.image(0, 0, 'game', 'levelwindow');
-    const levelTitle = this.add.text(0, -210, 'Level 1', {
-      fontSize: '50px',
-      fontFamily: 'font',
-    });
+    const levelTitle =
+      this.add.text(0, -210, 'Level ' + (this.data.get('selected') + 1), {
+        fontSize: '50px',
+        fontFamily: 'font',
+      });
     levelTitle.setOrigin(0.5);
     levelTitle.setStroke('#911315', 6);
     const star1 = this.add.image(-8, -100, 'game', 'star');
@@ -110,8 +114,25 @@ export default class SelectScene extends Phaser.Scene {
       ease: 'Bounce',
       duration: 600,
     });
+    this.data.events.on('changedata-selected', (parent, value) => {
+      this.tweens.timeline({
+        tweens: [{
+          targets: levelModal,
+          x: 1220,
+          duration: 150,
+          onComplete: () => levelTitle.setText('Level ' + (value + 1)),
+        },
+        {
+          targets: levelModal,
+          x: 825,
+          ease: 'Bounce',
+          duration: 600,
+        }],
+      });
+    });
     this.cameras.main.once('camerafadeoutcomplete', () => {
       this.scene.stop('HomeScene');
+      this.data.events.off('changedata-selected');
       this.scene.start('LevelScene', {
         level: 1,
       });

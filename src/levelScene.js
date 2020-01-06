@@ -21,13 +21,15 @@ export default class LevelScene extends Phaser.Scene {
    * @memberof LevelScene
    */
   create(data) {
-    this.add.tileSprite(1024, 200, 2048, 400, 'bg', 'layer7');
-    this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer6');
-    this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer5');
-    this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer4');
-    this.add.tileSprite(512, 450, 2048, 200, 'bg', 'layer3');
-    this.add.tileSprite(512, 475, 2048, 150, 'bg', 'layer2');
-    this.add.tileSprite(512, 565, 2048, 30, 'bg', 'layer1');
+    const layer7 = this.add.tileSprite(1024, 200, 2048, 400, 'bg', 'layer7');
+    const layer6 = this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer6');
+    const layer5 = this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer5');
+    const layer4 = this.add.tileSprite(512, 475, 1024, 150, 'bg', 'layer4');
+    const layer3 = this.add.tileSprite(512, 450, 2048, 200, 'bg', 'layer3');
+    const layer2 = this.add.tileSprite(512, 475, 2048, 150, 'bg', 'layer2');
+    const layer1 = this.add.tileSprite(512, 565, 2048, 30, 'bg', 'layer1');
+    const bgcontent = [layer7, layer6, layer5, layer4, layer3, layer2, layer1];
+    this.container = this.add.container(0, 0, bgcontent);
     this.anims.create({
       key: 'lips',
       frames: this.anims.generateFrameNames('game', {
@@ -166,12 +168,12 @@ export default class LevelScene extends Phaser.Scene {
    * @memberof LevelScene
    */
   update() {
-    this.children.list[0].tilePositionX += 0.06;
-    this.children.list[1].tilePositionX += 0.12;
-    this.children.list[2].tilePositionX += 0.25;
-    this.children.list[3].tilePositionX += 0.5;
-    this.children.list[4].tilePositionX += 1;
-    this.children.list[5].tilePositionX += 2;
-    this.children.list[6].tilePositionX += 4;
+    this.container.list[0].tilePositionX += 0.06;
+    this.container.list[1].tilePositionX += 0.12;
+    this.container.list[2].tilePositionX += 0.25;
+    this.container.list[3].tilePositionX += 0.5;
+    this.container.list[4].tilePositionX += 1;
+    this.container.list[5].tilePositionX += 2;
+    this.container.list[6].tilePositionX += 4;
   }
 }

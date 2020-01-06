@@ -55,21 +55,17 @@ export default class SelectScene extends Phaser.Scene {
     });
     const selectContent = [selectBg, selectTitle, levels, home, next];
     const selectModal = this.add.container(-305, 270, selectContent);
-    for (let i = 0; i < 3; i += 1) {
-      const bg = this.add.image(0, 0, 'game', i ? 'button' : 'buttonon');
-      const text = this.add.text(-4, -10, (i + 1), {
-        fontSize: '80px',
-        fontFamily: 'font',
-      });
-      text.setOrigin(0.5);
-      text.setStroke(i ? '#6dc300' : '#cc191c', 6);
-      const button = this.add.container(0, 0, [bg, text]);
+    for (let i = 0; i < 15; i += 1) {
+      const button = new Button(this, 0, 0, 'game', 'button', (selected) => {
+        levels.each((button) => {
+          button.deselect();
+        });
+        selected.select();
+      }, i + 1, i);
       levels.add(button);
     }
     for (let i = 3; i < 15; i += 1) {
-      const bg = this.add.image(0, 0, 'game', 'locked');
-      const button = this.add.container(0, 0, [bg]);
-      levels.add(button);
+      levels.list[i].lock();
     }
     // eslint-disable-next-line new-cap
     Phaser.Actions.GridAlign(levels.list, {

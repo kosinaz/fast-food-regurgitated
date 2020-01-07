@@ -1,70 +1,66 @@
 [
   {
-    "foods": [
-      "burger",
-      "cola"
-    ],
-    "calories": 3000,
-    "purple pickles": 0
+    "burger": "4/7"
   },
   {
-    "alacarte": [
-      "burger",
-      "cola",
-      "fries"
-    ],
-    "calories": 4000,
-    "purple pickles": 0
+    "burger": "8/14"
   },
   {
-    "alacarte": [
-      "burger",
-      "cola",
-      "fries"
-    ],
-    "calories": 5000,
-    "purple pickles": 1
+    "burger": "4/7",
+    "cola": "4/7"
   },
   {
-    "alacarte": [
-      "burger",
-      "cola",
-      "fries",
-      "hotdog"
-    ],
-    "calories": 6000,
-    "purple pickles": 3
+    "burger": "0/4",
+    "cola": "8/14"
   },
   {
-    "alacarte": [
-      "burger",
-      "cola",
-      "fries",
-      "hotdog"
-    ],
-    "calories": 7000,
-    "purple pickles": 5
+    "burger": "0/4",
+    "cola": "4/7",
+    "salad": "4/7"
   },
   {
-    "alacarte": [
-      "burger",
-      "cola",
-      "fries",
-      "hotdog",
-      "pizza8"
-    ],
-    "calories": 8000,
-    "purple pickles": 7
+    "pickle": "0/4",
+    "burger": "0/4",
+    "cola": "0/4",
+    "salad": "8/14"
   },
   {
-    "alacarte": [
-      "burger",
-      "cola",
-      "fries",
-      "hotdog",
-      "pizza8"
-    ],
-    "calories": 9000,
-    "purple pickles": 9
-  }
+    "pickle": "0/4",
+    "burger": "0/4",
+    "cola": "0/4",
+    "salad": "4/7",
+    "hot dog": "4/7"
+  },
+  {
+    "pickle": "0/4",
+    "burger": "0/4",
+    "cola": "0/4",
+    "salad": "0/4",
+    "hot dog": "8/14"
+  },
+  {
+    "pickle": "0/4",
+    "burger": "0/4",
+    "cola": "0/4",
+    "salad": "0/4",
+    "hot dog": "4/7",
+    "lemonade": "4/7"
+  },
+  {
+    "cheeseburger": "0/1",
+    "pickle": "0/8",
+    "burger": "0/4",
+    "cola": "0/4",
+    "salad": "0/4",
+    "hot dog": "0/4",
+    "lemonade": "8/14"
+  },
+  {
+    "pickle": "0/4",
+    "burger": "4/7",
+    "cola": "4/7",
+    "salad": "4/7",
+    "hot dog": "0/4",
+    "lemonade": "8/14"
+  },
 ]

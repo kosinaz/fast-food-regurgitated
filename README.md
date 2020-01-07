@@ -53,3 +53,9 @@ Upgrades:
 * bacon: 3 levels, extra calories for burgers
 * onion: 3 levels, extra calories for hotdogs
 * sausage: 3 levels, extra calories for pizzas
+
+Levels:
+
+On every level the lips has to eat the specified amount from the one or more foods. Each target amount is a product of four. Eating each of the specified amounts rewards one star and unlocks the next level. Eating half of the specified amount more rewards two, and another quarter of the amount rewards three stars.
+
+To unlock the next set of five levels ten stars need to be collected on the previous five levels.

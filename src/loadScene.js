@@ -42,12 +42,14 @@ export default class LoadScene extends Phaser.Scene {
    */
   preload() {
     const border = this.add.image(0, 0, 'border');
-    const bar = this.add.image(-3, -10, 'bar');
-    bar.frame.cutWidth = 0;
-    this.container = this.add.container(512, 288, [border, bar]);
+    const mask = this.add.image(509, 278, 'bar');
+    mask.visible = false;
+    const bar = this.add.image(-3 - mask.width, -10, 'bar');
+    bar.mask = new Phaser.Display.Masks.BitmapMask(this, mask);
+    this.container = this.add.container(512, 288, [border, mask, bar]);
     this.load.on('progress', (value) => this.tweens.add({
-      targets: bar.frame,
-      cutWidth: bar.width * value,
+      targets: bar,
+      x: -3 - mask.width * (value - 1),
       ease: 'Quad',
       duration: 300,
     }));

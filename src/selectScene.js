@@ -31,16 +31,18 @@ export default class SelectScene extends Phaser.Scene {
     selectTitle.setOrigin(0.5);
     selectTitle.setStroke('#911315', 6);
     const levels = this.add.container(0, 0);
-    const home = new Button(this, -115, 235, 'game', 'home', () => {
+    const home = new Button(this, -115, 235, 'game', 'home');
+    home.on('click', () => {
       this.scene.transition({
         target: 'HomeScene',
         duration: 300,
       });
       this.data.events.off('changedata-selected');
     });
-    const next = new Button(this, 106, 235, 'game', 'next', () =>
-      this.cameras.main.fadeOut(300),
-    );
+    const next = new Button(this, 106, 235, 'game', 'next');
+    next.on('click', () => {
+      this.cameras.main.fadeOut(300);
+    });
     this.events.on('transitionout', () => {
       this.tweens.add({
         targets: selectModal,
@@ -58,13 +60,7 @@ export default class SelectScene extends Phaser.Scene {
     const selectContent = [selectBg, selectTitle, levels, home, next];
     const selectModal = this.add.container(-305, 270, selectContent);
     for (let i = 0; i < 15; i += 1) {
-      const button = new Button(this, 0, 0, 'game', 'button', (selected) => {
-        levels.each((button) => {
-          button.deselect();
-        });
-        selected.select();
-        this.data.set('selected', selected.text - 1);
-      }, i + 1, this.data.get('selected') !== i);
+      const button = new Button(this, 0, 0, 'game', 'button', i + 1);
       levels.add(button);
     }
     for (let i = 3; i < 15; i += 1) {

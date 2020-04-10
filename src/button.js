@@ -14,12 +14,10 @@ export default class Button extends Phaser.GameObjects.Container {
    * @param {number} y
    * @param {string} texture
    * @param {string} frame
-   * @param {*} callback
    * @param {string} text
-   * @param {boolean} deselected
    * @memberof Button
    */
-  constructor(scene, x, y, texture, frame, callback, text, deselected) {
+  constructor(scene, x, y, texture, frame, text) {
     super(scene, x, y, [
       scene.add.image(0, 0, texture, frame),
       scene.add.text(-4, -10, text, {
@@ -30,40 +28,37 @@ export default class Button extends Phaser.GameObjects.Container {
     scene.children.add(this);
     this.setSize(this.list[0].width, this.list[0].height);
     this.setInteractive();
-    this.on('pointerup', () => scene.tweens.add({
-      targets: this,
-      scale: 0.8,
-      ease: 'Quad',
-      duration: 70,
-      yoyo: true,
-      onComplete: () => callback(this),
-    }));
+    this.on('pointerdown', () => {
+      this.down = true;
+      scene.tweens.add({
+        targets: this,
+        scale: 0.8,
+        ease: 'Quad',
+        duration: 35,
+      });
+    });
+    this.on('pointerup', () => {
+      if (this.down) {
+        scene.time.addEvent({
+          callback: () => {
+            this.emit('click');
+          },
+          delay: 35,
+        });
+      }
+    });
+    scene.input.on('pointerup', () => {
+      console.log('up');
+      scene.tweens.add({
+        targets: this,
+        scale: 1,
+        ease: 'Quad',
+        duration: 35,
+      });
+    });
     this.list[1].setOrigin(0.5);
     this.list[1].setStroke('#6dc300', 6);
     this.text = text;
-    if (deselected) {
-      this.deselect();
-    }
-  }
-
-  /**
-   * Highlights the selected button.
-   *
-   * @memberof Button
-   */
-  select() {
-    this.list[1].setStroke('#6dc300', 6);
-    this.list[1].setColor('#ffffff');
-  }
-
-  /**
-   * Turns off the highlight on the selected button.
-   *
-   * @memberof Button
-   */
-  deselect() {
-    this.list[1].setStroke('#6dc300', 0);
-    this.list[1].setColor('#6dc300');
   }
 
   /**

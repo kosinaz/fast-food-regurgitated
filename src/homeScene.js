@@ -40,31 +40,36 @@ export default class HomeScene extends Phaser.Scene {
     subtitle.setStroke('#fff', 25);
     subtitle.setShadow(3, 6, '#444', 2, true, true);
     const titles = this.add.container(512, 125, [title, subtitle]);
-    const next = new Button(this, -250, 0, 'game', 'next', () =>
+    const next = new Button(this, -250, 0, 'game', 'next');
+    next.on('click', () =>
       this.scene.transition({
         target: 'SelectScene',
         duration: 200,
       }),
     );
-    const score = new Button(this, -125, 0, 'game', 'score', () =>
+    const score = new Button(this, -125, 0, 'game', 'score');
+    score.on('click', () =>
       this.scene.transition({
         target: 'ScoreScene',
         duration: 200,
       }),
     );
-    const trophy = new Button(this, 0, 0, 'game', 'trophy', () =>
+    const trophy = new Button(this, 0, 0, 'game', 'trophy');
+    trophy.on('click', () =>
       this.scene.transition({
         target: 'TrophyScene',
         duration: 200,
       }),
     );
-    const info = new Button(this, 125, 0, 'game', 'info', () =>
+    const info = new Button(this, 125, 0, 'game', 'info');
+    info.on('click', () =>
       this.scene.transition({
         target: 'InfoScene',
         duration: 200,
       }),
     );
-    const settings = new Button(this, 250, 0, 'game', 'settings', () =>
+    const settings = new Button(this, 250, 0, 'game', 'settings');
+    settings.on('click', () =>
       this.scene.transition({
         target: 'SettingsScene',
         duration: 200,

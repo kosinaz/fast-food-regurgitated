@@ -85,9 +85,10 @@ export default class LoadScene extends Phaser.Scene {
    * @memberof LoadScene
    */
   create() {
-    const next = new Button(this, 512, 288, 'game', 'next', () =>
-      this.cameras.main.fadeOut(300),
-    );
+    const next = new Button(this, 512, 288, 'game', 'next');
+    next.on('click', () => {
+      this.cameras.main.fadeOut(300);
+    });
     next.setScale(0);
     this.tweens.timeline({
       tweens: [{

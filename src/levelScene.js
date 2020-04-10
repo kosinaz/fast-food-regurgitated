@@ -142,6 +142,7 @@ export default class LevelScene extends Phaser.Scene {
       foods.killAndHide(body.gameObject);
       this.data.set('foods', foods.countActive());
     });
+    this.scene.run('LevelHintScene');
     this.scene.run('LevelStartScene');
     this.scene.pause();
     lips.setVelocityY(-600);

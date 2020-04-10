@@ -40,8 +40,8 @@ export default class HomeScene extends Phaser.Scene {
     subtitle.setStroke('#fff', 25);
     subtitle.setShadow(3, 6, '#444', 2, true, true);
     const titles = this.add.container(512, 125, [title, subtitle]);
-    const next = new Button(this, -250, 0, 'game', 'next');
-    next.on('click', () =>
+    const play = new Button(this, -250, 0, 'game', 'play');
+    play.on('click', () =>
       this.scene.transition({
         target: 'SelectScene',
         duration: 200,
@@ -75,7 +75,7 @@ export default class HomeScene extends Phaser.Scene {
         duration: 200,
       }),
     );
-    const buttons = [next, score, trophy, info, settings];
+    const buttons = [play, score, trophy, info, settings];
     const container = this.add.container(512, 485, buttons);
     this.events.on('transitionout', () => {
       this.tweens.add({

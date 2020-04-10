@@ -3,6 +3,7 @@ import HomeScene from './homeScene.js';
 import SelectScene from './selectScene.js';
 import LevelScene from './levelScene.js';
 import LevelStartScene from './levelStartScene.js';
+import LevelHintScene from './levelHintScene.js';
 import LevelEndScene from './levelEndScene.js';
 // import ScoreScene from './scoreScene.js';
 // import CreditsScene from './creditsScene.js';
@@ -31,6 +32,7 @@ new Phaser.Game({
     SelectScene,
     LevelScene,
     LevelStartScene,
+    LevelHintScene,
     LevelEndScene,
     // ScoreScene,
     // CreditsScene,

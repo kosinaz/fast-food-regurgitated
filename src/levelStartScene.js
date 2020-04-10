@@ -1,3 +1,5 @@
+import Button from './button.js';
+
 /**
  * Represent the level introduction modal of the level scene.
  *
@@ -21,52 +23,55 @@ export default class LevelStartScene extends Phaser.Scene {
    */
   create() {
     this.cameras.main.fadeIn(100);
-    const up = this.add.image(0, -90, 'game', 'up');
-    const tap =
-      this.add.text(0, 0, 'Tap on the screen\nor press any key\nrepeatedly', {
-        fontSize: '40px',
+    const levelBg = this.add.image(0, 0, 'game', 'levelwindow');
+    const levelTitle =
+      this.add.text(0, -210, 'Level ' + (this.data.get('selected') + 1), {
+        fontSize: '50px',
         fontFamily: 'font',
-        align: 'center',
       });
-    tap.setOrigin(0.5);
-    tap.setStroke('#00b0dc', 4);
-    const taptip = this.add.container(200, 350, [up, tap]);
-    const left = this.add.image(-35, 20, 'game', 'left');
-    const eat =
-      this.add.text(0, 0, 'Eat these', {
-        fontSize: '40px',
-        fontFamily: 'font',
-        align: 'center',
-      });
-    eat.setStroke('#00b0dc', 4);
-    const eattip = this.add.container(160, 20, [left, eat]);
-    const down = this.add.image(0, 50, 'game', 'down');
-    const avoid =
-      this.add.text(0, 0, 'Avoid this', {
-        fontSize: '40px',
-        fontFamily: 'font',
-        align: 'center',
-      });
-    avoid.setOrigin(0.5);
-    avoid.setStroke('#00b0dc', 4);
-    const avoidtip = this.add.container(700, 470, [down, avoid]);
-    this.input.on('pointerup', () => {
-      this.scene.resume('LevelScene');
+    levelTitle.setOrigin(0.5);
+    levelTitle.setStroke('#911315', 6);
+    const star1 = this.add.image(0, 0, 'game', 'star');
+    const star2 = this.add.image(-102, 35, 'game', 'star');
+    star2.setScale(0.75);
+    const star3 = this.add.image(104, 35, 'game', 'star');
+    star3.setScale(0.75);
+    const stars = this.add.container(-8, -100, [star1, star2, star3]);
+    const burgerImage = this.add.image(0, 0, 'game', 'burger');
+    const burgerNumber = this.add.text(20, 10, 4, {
+      fontSize: '40px',
+      fontFamily: 'font',
+    });
+    burgerNumber.setOrigin(0.5);
+    burgerNumber.setStroke('#efb469', 4);
+    const burger = this.add.container(-8, 50, [burgerImage, burgerNumber]);
+    const select = new Button(this, -102, 0, 'game', 'select');
+    select.on('click', () => {
+      this.scene.stop('LevelHintScene');
+      this.cameras.main.fadeOut(300);
+    });
+    const next = new Button(this, 104, 0, 'game', 'next');
+    next.on('click', () => {
       this.tweens.add({
-        targets: [taptip, eattip, avoidtip],
-        alpha: 0,
-        duration: 100,
-        onComplete: () => this.scene.pause(),
+        targets: levelStartWindow,
+        y: -500,
+        ease: 'Quad',
+        duration: 600,
+        onComplete: () => {
+          this.scene.run('LevelHintScene');
+          this.scene.stop('LevelStartScene');
+        },
       });
     });
-    this.input.keyboard.on('keyup', () => {
-      this.scene.resume('LevelScene');
-      this.tweens.add({
-        targets: [taptip, eattip, avoidtip],
-        alpha: 0,
-        duration: 100,
-        onComplete: () => this.scene.pause(),
-      });
+    const buttons = this.add.container(-8, 230, [select, next]);
+    const levelContent = [levelBg, levelTitle, stars, burger, buttons];
+    const levelStartWindow = this.add.container(512, 270, levelContent);
+    this.cameras.main.once('camerafadeoutcomplete', () => {
+      this.scene.stop('LevelStartScene');
+      this.scene.stop('LevelHintScene');
+      this.scene.stop('LevelEndScene');
+      this.scene.stop('LevelScene');
+      this.scene.start('SelectScene');
     });
   }
 }

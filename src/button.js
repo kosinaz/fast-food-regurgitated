@@ -48,7 +48,6 @@ export default class Button extends Phaser.GameObjects.Container {
       }
     });
     scene.input.on('pointerup', () => {
-      console.log('up');
       scene.tweens.add({
         targets: this,
         scale: 1,

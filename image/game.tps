@@ -187,6 +187,8 @@
             <key type="filename">game/home.png</key>
             <key type="filename">game/info.png</key>
             <key type="filename">game/locked.png</key>
+            <key type="filename">game/next.png</key>
+            <key type="filename">game/play.png</key>
             <key type="filename">game/score.png</key>
             <key type="filename">game/select.png</key>
             <key type="filename">game/settings.png</key>
@@ -218,6 +220,21 @@
                 <rect>21,16,41,31</rect>
                 <key>scale9Paddings</key>
                 <rect>21,16,41,31</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">game/cola.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,37,31,74</rect>
+                <key>scale9Paddings</key>
+                <rect>16,37,31,74</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -340,21 +357,6 @@
                 <rect>28,59,55,117</rect>
                 <key>scale9Paddings</key>
                 <rect>28,59,55,117</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">game/next.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>350,230,700,461</rect>
-                <key>scale9Paddings</key>
-                <rect>350,230,700,461</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

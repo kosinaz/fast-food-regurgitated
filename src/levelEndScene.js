@@ -54,24 +54,27 @@ export default class LevelEndScene extends Phaser.Scene {
     const burgerContent = [burgerImage, burgerNumber, burgerMax];
     const burger = this.add.container(-8, 50, burgerContent);
     let to = 'LevelScene';
-    const back = new Button(this, -102, 0, 'game', 'back', () =>
-      this.cameras.main.fadeOut(300),
-    );
-    back.disableInteractive();
-    const select = new Button(this, 0, 0, 'game', 'select', () => {
+    const select = new Button(this, -102, 0, 'game', 'select');
+    select.on('click', () => {
       this.cameras.main.fadeOut(300);
       to = 'SelectScene';
     });
     select.disableInteractive();
-    const next = new Button(this, 104, 0, 'game', 'next', () =>
+    const play = new Button(this, 0, 0, 'game', 'play');
+    play.on('click', () =>
+      this.cameras.main.fadeOut(300),
+    );
+    play.disableInteractive();
+    const next = new Button(this, 104, 0, 'game', 'next');
+    next.on('click', () =>
       this.cameras.main.fadeOut(300),
     );
     if (data.n < 4) {
       next.lock();
     }
-    const buttons = this.add.container(-8, 230, [back, select, next]);
+    const buttons = this.add.container(-8, 230, [select, play, next]);
     const levelContent = [levelBg, levelTitle, stars, burger, buttons];
-    const levelModal = this.add.container(512, -500, levelContent);
+    const levelEndWindow = this.add.container(512, -500, levelContent);
     this.tweens.timeline({
       onComplete: () => {
         back.setInteractive();
@@ -79,7 +82,7 @@ export default class LevelEndScene extends Phaser.Scene {
         next.setInteractive();
       },
       tweens: [{
-        targets: levelModal,
+        targets: levelEndWindow,
         y: 270,
         ease: 'Bounce',
         duration: 600,

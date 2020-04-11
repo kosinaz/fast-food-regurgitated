@@ -4,23 +4,23 @@ import Button from './button.js';
  * Represent the level complete modal of the level scene.
  *
  * @export
- * @class LevelEndScene
+ * @class LevelInfoScene
  * @extends {Phaser.Scene}
  */
-export default class LevelEndScene extends Phaser.Scene {
+export default class LevelInfoScene extends Phaser.Scene {
   /**
-   * Creates an instance of LevelEndScene.
-   * @memberof LevelEndScene
+   * Creates an instance of LevelInfoScene.
+   * @memberof LevelInfoScene
    */
   constructor() {
-    super('LevelEndScene');
+    super('LevelInfoScene');
   }
 
   /**
-   * Creates the content of the LevelEndScene.
+   * Creates the content of the LevelInfoScene.
    *
    * @param {*} data
-   * @memberof LevelEndScene
+   * @memberof LevelInfoScene
    */
   create(data) {
     const levelBg = this.add.image(0, 0, 'game', 'levelwindow');
@@ -108,7 +108,7 @@ export default class LevelEndScene extends Phaser.Scene {
     });
     this.cameras.main.once('camerafadeoutcomplete', () => {
       this.scene.stop('LevelStartScene');
-      this.scene.stop('LevelEndScene');
+      this.scene.stop('LevelInfoScene');
       this.scene.stop('LevelScene');
       this.scene.start(to, {
         level: 1,

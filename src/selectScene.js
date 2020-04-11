@@ -48,7 +48,7 @@ export default class SelectScene extends Phaser.Scene {
       });
     });
     const selectContent = [selectBg, selectTitle, levels, home];
-    const selectWindow = this.add.container(-305, 270, selectContent);
+    const selectWindow = this.add.container(1329, 270, selectContent);
     for (let i = 0; i < 15; i += 1) {
       const button = new Button(this, 0, 0, 'game', 'button', i + 1);
       button.on('click', () => {
@@ -70,7 +70,7 @@ export default class SelectScene extends Phaser.Scene {
     });
     this.tweens.add({
       targets: selectWindow,
-      x: 320,
+      x: 512,
       ease: 'Bounce',
       duration: 600,
     });
